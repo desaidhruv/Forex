@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="add">
+        <input type="text" name="name">
+        <input type="text" name="city">
+        <button>Add</button>
+    </form>
+    <p id="fb"></p>
+    <!-- JS FILES -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+    <script>
+        // Initialize Cloud Firestore through Firebase
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCxkYqFu0SY3Z07PRxMy4Ru1lE7w4BjPSk",
+            authDomain: "test-fire-68434.firebaseapp.com",
+            databaseURL: "https://test-fire-68434.firebaseio.com",
+            projectId: "test-fire-68434",
+            storageBucket: "test-fire-68434.appspot.com",
+            messagingSenderId: "381311186050",
+            appId: "1:381311186050:web:6e4ecffbe380ff5523f09b",
+            measurementId: "G-CDDRFLWG2C"
+        };
+        // Initialize Firebase
+        firebase.initializeApp({
+            apiKey: 'AIzaSyCxkYqFu0SY3Z07PRxMy4Ru1lE7w4BjPSk',
+            authDomain: 'test-fire-68434.firebaseapp.com',
+            projectId: 'test-fire-68434'
+        });
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="assets/js/fb.js"></script>
+</body>
+
+</html>
