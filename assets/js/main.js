@@ -66,8 +66,43 @@ let tabsWithContent = (function () {
 
 // Converter Starts
 function change() {
+    let buy = $('#buy').val();
+    let product = $('#product').val();
+    let number = $('#phoneNumber').val();
+    let purpose = $('#purpose').val();
     let country = $('#country').val();
     let inputAmount = $('#inputAmount').val();
+
+    let url = 'https://folksmedia.herokuapp.com/sendEmail'
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                "Type": buy,
+                "Product": product,
+                "Contact": number,
+                "Purpose": purpose,
+                "Amount": inputAmount,
+                "Currency": country,
+            }
+        )
+    })
+        .then(res => {
+            if (res.status == 201) {
+                //Tera success action joh dalna ho
+                console.log("Success")
+            }
+            else {
+                //Error action	
+            }
+        })
+        .catch(err => {
+            //Error action
+        });
 
     var docRef = db.collection("test").doc(country);
 
@@ -136,8 +171,43 @@ function change() {
 
 // Sell Starts
 function sellChange() {
+    let sell = $('#sell').val();
+    let product = $('#sellProduct').val();
+    let number = $('#sellPhoneNumber').val();
+    let purpose = $('#sellPurpose').val();
     let sellCountry = $('#sellCountry').val();
     let sellAmount = $('#sellAmount').val();
+
+    let url = 'https://folksmedia.herokuapp.com/sendEmail'
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                "Type": sell,
+                "Product": product,
+                "Contact": number,
+                "Purpose": purpose,
+                "Amount": sellAmount,
+                "Currency": sellCountry,
+            }
+        )
+    })
+        .then(res => {
+            if (res.status == 201) {
+                //Tera success action joh dalna ho
+                console.log("Success")
+            }
+            else {
+                //Error action	
+            }
+        })
+        .catch(err => {
+            //Error action
+        });
 
     var docRef = db.collection("test").doc(sellCountry);
 
