@@ -280,106 +280,211 @@ function change() {
 
 // Sell Starts
 function sellChange() {
+    let radio = $('input[name="test"]:checked').val();
+    console.log(radio)
+    if (radio === 'Cash') {
+        let sell = $('#sell').val();
+        let product = $('#sellProduct').val();
+        let number = $('#sellPhoneNumber').val();
+        let purpose = $('#sellPurpose').val();
+        let sellCountry = $('#sellCountry').val();
+        let sellAmount = $('#sellAmount').val();
 
-    let sell = $('#sell').val();
-    let product = $('#sellProduct').val();
-    let number = $('#sellPhoneNumber').val();
-    let purpose = $('#sellPurpose').val();
-    let sellCountry = $('#sellCountry').val();
-    let sellAmount = $('#sellAmount').val();
+        // let url = 'https://folksmedia.herokuapp.com/sendEmail'
 
-    let url = 'https://folksmedia.herokuapp.com/sendEmail'
+        // fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(
+        //         {
+        //             "Type": sell,
+        //             "Product": product,
+        //             "Contact": number,
+        //             "Purpose": purpose,
+        //             "Amount": sellAmount,
+        //             "Currency": sellCountry,
+        //         }
+        //     )
+        // })
+        //     .then(res => {
+        //         if (res.status == 201) {
+        //             //Tera success action joh dalna ho
+        //             console.log("Success")
+        //         }
+        //         else {
+        //             //Error action	
+        //         }
+        //     })
+        //     .catch(err => {
+        //         //Error action
+        //     });
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(
-            {
-                "Type": sell,
-                "Product": product,
-                "Contact": number,
-                "Purpose": purpose,
-                "Amount": sellAmount,
-                "Currency": sellCountry,
+        var docRef = db.collection("test").doc(sellCountry);
+
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let sellCountry = $('#sellCountry').val();
+                console.log(sellCountry);
+                let sellMultiplier = doc.data().sellCurrency;
+                console.log(sellAmount * sellMultiplier);
+
+                let sellResult = sellAmount * sellMultiplier;
+                let payableAmount = sellResult - 300;
+                let sellCoupon = $('#sellCoupon');
+                sellCoupon.html(`<p class="label">
+                    Have a coupon code?
+                    </p>
+                    <div class="field is-grouped ">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="Code" id="sellCoupon1">
+                    </p>
+                    <p class="control btn">
+                        <button class="button is-info" id="sellClicked">
+                            APPLY
+                        </button>
+                    </p>
+                    </div>
+                    <hr>
+    
+                    <p class="is-pulled-right">${sellResult}</p>
+                    <p>Sub Total</p>
+                    <p class="is-pulled-right">200</p>
+                    <p>GST</p>
+                    <p class="is-pulled-right">100</p>
+                    <p>Service Charge</p>
+                    <hr>
+                    <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
+                    <p>Amount Payable</p><br>
+                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                        checkout</strong></button>`);
+                $('#sellClicked').click(function () {
+                    let sellCode = $('#sellCoupon1').val();
+                    console.log(sellCode);
+
+                    if (sellCode == 'NEW') {
+                        NewPayableAmount = payableAmount + 200;
+                        console.log(NewPayableAmount);
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                    if (sellCode == 'NEW1') {
+                        NewPayableAmount = payableAmount + 400;
+                        console.log(payableAmount);
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                })
+
+
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
             }
-        )
-    })
-        .then(res => {
-            if (res.status == 201) {
-                //Tera success action joh dalna ho
-                console.log("Success")
-            }
-            else {
-                //Error action	
-            }
-        })
-        .catch(err => {
-            //Error action
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
         });
+    }
+    else if (radio === 'Forex') {
+        let sell = $('#sell').val();
+        let product = $('#sellProduct').val();
+        let number = $('#sellPhoneNumber').val();
+        let purpose = $('#sellPurpose').val();
+        let sellCountry = $('#sellCountry').val();
+        let sellAmount = $('#sellAmount').val();
 
-    var docRef = db.collection("test").doc(sellCountry);
+        // let url = 'https://folksmedia.herokuapp.com/sendEmail'
 
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            let sellCountry = $('#sellCountry').val();
-            console.log(sellCountry);
-            let sellMultiplier = doc.data().sellCurrency;
-            console.log(sellAmount * sellMultiplier);
+        // fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(
+        //         {
+        //             "Type": sell,
+        //             "Product": product,
+        //             "Contact": number,
+        //             "Purpose": purpose,
+        //             "Amount": sellAmount,
+        //             "Currency": sellCountry,
+        //         }
+        //     )
+        // })
+        //     .then(res => {
+        //         if (res.status == 201) {
+        //             //Tera success action joh dalna ho
+        //             console.log("Success")
+        //         }
+        //         else {
+        //             //Error action	
+        //         }
+        //     })
+        //     .catch(err => {
+        //         //Error action
+        //     });
 
-            let sellResult = sellAmount * sellMultiplier;
-            let payableAmount = sellResult - 300;
-            let sellCoupon = $('#sellCoupon');
-            sellCoupon.html(`<p class="label">
-                Have a coupon code?
-                </p>
-                <div class="field is-grouped ">
-                <p class="control ">
-                    <input class="input" type="text" placeholder="Code" id="sellCoupon1">
-                </p>
-                <p class="control btn">
-                    <button class="button is-info" id="sellClicked">
-                        APPLY
-                    </button>
-                </p>
-                </div>
-                <hr>
+        var docRef = db.collection("test").doc(sellCountry);
 
-                <p class="is-pulled-right">${sellResult}</p>
-                <p>Sub Total</p>
-                <p class="is-pulled-right">200</p>
-                <p>GST</p>
-                <p class="is-pulled-right">100</p>
-                <p>Service Charge</p>
-                <hr>
-                <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
-                <p>Amount Payable</p><br>
-                <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
-                    checkout</strong></button>`);
-            $('#sellClicked').click(function () {
-                let sellCode = $('#sellCoupon1').val();
-                console.log(sellCode);
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let sellCountry = $('#sellCountry').val();
+                console.log(sellCountry);
+                let sellMultiplier = doc.data().sellForex;
+                console.log(sellAmount * sellMultiplier);
 
-                if (sellCode == 'NEW') {
-                    NewPayableAmount = payableAmount + 200;
-                    console.log(NewPayableAmount);
-                    $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
-                }
-                if (sellCode == 'NEW1') {
-                    NewPayableAmount = payableAmount + 400;
-                    console.log(payableAmount);
-                    $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
-                }
-            })
+                let sellResult = sellAmount * sellMultiplier;
+                let payableAmount = sellResult - 300;
+                let sellCoupon = $('#sellCoupon');
+                sellCoupon.html(`<p class="label">
+                    Have a coupon code?
+                    </p>
+                    <div class="field is-grouped ">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="Code" id="sellCoupon1">
+                    </p>
+                    <p class="control btn">
+                        <button class="button is-info" id="sellClicked">
+                            APPLY
+                        </button>
+                    </p>
+                    </div>
+                    <hr>
+    
+                    <p class="is-pulled-right">${sellResult}</p>
+                    <p>Sub Total</p>
+                    <p class="is-pulled-right">200</p>
+                    <p>GST</p>
+                    <p class="is-pulled-right">100</p>
+                    <p>Service Charge</p>
+                    <hr>
+                    <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
+                    <p>Amount Payable</p><br>
+                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                        checkout</strong></button>`);
+                $('#sellClicked').click(function () {
+                    let sellCode = $('#sellCoupon1').val();
+                    console.log(sellCode);
+
+                    if (sellCode == 'NEW') {
+                        NewPayableAmount = payableAmount + 200;
+                        console.log(NewPayableAmount);
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                    if (sellCode == 'NEW1') {
+                        NewPayableAmount = payableAmount + 400;
+                        console.log(payableAmount);
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                })
 
 
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }
 }
 // Sell Ends
