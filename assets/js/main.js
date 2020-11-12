@@ -64,8 +64,13 @@ let tabsWithContent = (function () {
 })();
 // Tab End
 
+
+
+
 // Converter Starts
 function change() {
+    let radio = $('input[name="test"]:checked').val();
+    console.log(radio)
     let buy = $('#buy').val();
     let product = $('#product').val();
     let number = $('#phoneNumber').val();
@@ -171,6 +176,7 @@ function change() {
 
 // Sell Starts
 function sellChange() {
+
     let sell = $('#sell').val();
     let product = $('#sellProduct').val();
     let number = $('#sellPhoneNumber').val();
