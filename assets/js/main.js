@@ -71,106 +71,210 @@ let tabsWithContent = (function () {
 function change() {
     let radio = $('input[name="test"]:checked').val();
     console.log(radio)
-    let buy = $('#buy').val();
-    let product = $('#product').val();
-    let number = $('#phoneNumber').val();
-    let purpose = $('#purpose').val();
-    let country = $('#country').val();
-    let inputAmount = $('#inputAmount').val();
+    if (radio === 'Cash') {
+        let buy = $('#buy').val();
+        let product = $('#product').val();
+        let number = $('#phoneNumber').val();
+        let purpose = $('#purpose').val();
+        let country = $('#country').val();
+        let inputAmount = $('#inputAmount').val();
 
-    let url = 'https://folksmedia.herokuapp.com/sendEmail'
+        let url = 'https://folksmedia.herokuapp.com/sendEmail'
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(
-            {
-                "Type": buy,
-                "Product": product,
-                "Contact": number,
-                "Purpose": purpose,
-                "Amount": inputAmount,
-                "Currency": country,
-            }
-        )
-    })
-        .then(res => {
-            if (res.status == 201) {
-                //Tera success action joh dalna ho
-                console.log("Success")
-            }
-            else {
-                //Error action	
-            }
-        })
-        .catch(err => {
-            //Error action
-        });
-
-    var docRef = db.collection("test").doc(country);
-
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            let country = $('#country').val();
-            console.log(country);
-            let multiplier = doc.data().currency;
-            console.log(inputAmount * multiplier);
-
-            let result = inputAmount * multiplier;
-            let payableAmount = result + 300;
-            let coupon = $('#coupon');
-            coupon.html(`<p class="label">
-                Have a coupon code?
-                </p>
-                <div class="field is-grouped ">
-                <p class="control ">
-                    <input class="input" type="text" placeholder="Code" id="coupon1">
-                </p>
-                <p class="control btn">
-                    <button class="button is-info" id="clicked">
-                        APPLY
-                    </button>
-                </p>
-                </div>
-                <hr>
-
-                <p class="is-pulled-right">${result}</p>
-                <p>Sub Total</p>
-                <p class="is-pulled-right">200</p>
-                <p>GST</p>
-                <p class="is-pulled-right">100</p>
-                <p>Service Charge</p>
-                <hr>
-                <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
-                <p>Amount Payable</p><br>
-                <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
-                    checkout</strong></button>`);
-            $('#clicked').click(function () {
-                let code = $('#coupon1').val();
-                console.log(code);
-
-                if (code == 'NEW') {
-                    NewPayableAmount = payableAmount - 200;
-                    console.log(NewPayableAmount);
-                    $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    "Type": buy,
+                    "Product": product,
+                    "Contact": number,
+                    "Purpose": purpose,
+                    "Amount": inputAmount,
+                    "Currency": country,
                 }
-                if (code == 'NEW1') {
-                    NewPayableAmount = payableAmount - 400;
-                    console.log(NewPayableAmount);
-                    $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+            )
+        })
+            .then(res => {
+                if (res.status == 201) {
+                    //Tera success action joh dalna ho
+                    console.log("Success")
+                }
+                else {
+                    //Error action	
                 }
             })
+            .catch(err => {
+                //Error action
+            });
+
+        var docRef = db.collection("test").doc(country);
+
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let country = $('#country').val();
+                console.log(country);
+                let multiplier = doc.data().currency;
+                console.log(inputAmount * multiplier);
+
+                let result = inputAmount * multiplier;
+                let payableAmount = result + 300;
+                let coupon = $('#coupon');
+                coupon.html(`<p class="label">
+                    Have a coupon code?
+                    </p>
+                    <div class="field is-grouped ">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="Code" id="coupon1">
+                    </p>
+                    <p class="control btn">
+                        <button class="button is-info" id="clicked">
+                            APPLY
+                        </button>
+                    </p>
+                    </div>
+                    <hr>
+    
+                    <p class="is-pulled-right">${result}</p>
+                    <p>Sub Total</p>
+                    <p class="is-pulled-right">200</p>
+                    <p>GST</p>
+                    <p class="is-pulled-right">100</p>
+                    <p>Service Charge</p>
+                    <hr>
+                    <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
+                    <p>Amount Payable</p><br>
+                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                        checkout</strong></button>`);
+                $('#clicked').click(function () {
+                    let code = $('#coupon1').val();
+                    console.log(code);
+
+                    if (code == 'NEW') {
+                        NewPayableAmount = payableAmount - 200;
+                        console.log(NewPayableAmount);
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                    if (code == 'NEW1') {
+                        NewPayableAmount = payableAmount - 400;
+                        console.log(NewPayableAmount);
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                })
 
 
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }
+    else if (radio === 'Forex') {
+        let buy = $('#buy').val();
+        let product = $('#product').val();
+        let number = $('#phoneNumber').val();
+        let purpose = $('#purpose').val();
+        let country = $('#country').val();
+        let inputAmount = $('#inputAmount').val();
+
+        let url = 'https://folksmedia.herokuapp.com/sendEmail'
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    "Type": buy,
+                    "Product": product,
+                    "Contact": number,
+                    "Purpose": purpose,
+                    "Amount": inputAmount,
+                    "Currency": country,
+                }
+            )
+        })
+            .then(res => {
+                if (res.status == 201) {
+                    //Tera success action joh dalna ho
+                    console.log("Success")
+                }
+                else {
+                    //Error action	
+                }
+            })
+            .catch(err => {
+                //Error action
+            });
+
+        var docRef = db.collection("test").doc(country);
+
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let country = $('#country').val();
+                console.log(country);
+                let multiplier = doc.data().forexCurrency;
+                console.log(inputAmount * multiplier);
+
+                let result = inputAmount * multiplier;
+                let payableAmount = result + 300;
+                let coupon = $('#coupon');
+                coupon.html(`<p class="label">
+                    Have a coupon code?
+                    </p>
+                    <div class="field is-grouped ">
+                    <p class="control ">
+                        <input class="input" type="text" placeholder="Code" id="coupon1">
+                    </p>
+                    <p class="control btn">
+                        <button class="button is-info" id="clicked">
+                            APPLY
+                        </button>
+                    </p>
+                    </div>
+                    <hr>
+    
+                    <p class="is-pulled-right">${result}</p>
+                    <p>Sub Total</p>
+                    <p class="is-pulled-right">200</p>
+                    <p>GST</p>
+                    <p class="is-pulled-right">100</p>
+                    <p>Service Charge</p>
+                    <hr>
+                    <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
+                    <p>Amount Payable</p><br>
+                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                        checkout</strong></button>`);
+                $('#clicked').click(function () {
+                    let code = $('#coupon1').val();
+                    console.log(code);
+
+                    if (code == 'NEW') {
+                        NewPayableAmount = payableAmount - 200;
+                        console.log(NewPayableAmount);
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                    if (code == 'NEW1') {
+                        NewPayableAmount = payableAmount - 400;
+                        console.log(NewPayableAmount);
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                    }
+                })
+
+
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }
 }
 // Converter Ends
 
