@@ -210,6 +210,7 @@ function change() {
             })
             .catch(err => {
                 //Error action
+                console.log("Error sending email:", err);
             });
 
         var docRef = db.collection("test").doc(country);
@@ -290,36 +291,37 @@ function sellChange() {
         let sellCountry = $('#sellCountry').val();
         let sellAmount = $('#sellAmount').val();
 
-        // let url = 'https://folksmedia.herokuapp.com/sendEmail'
+        let url = 'https://folksmedia.herokuapp.com/sendEmail'
 
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(
-        //         {
-        //             "Type": sell,
-        //             "Product": product,
-        //             "Contact": number,
-        //             "Purpose": purpose,
-        //             "Amount": sellAmount,
-        //             "Currency": sellCountry,
-        //         }
-        //     )
-        // })
-        //     .then(res => {
-        //         if (res.status == 201) {
-        //             //Tera success action joh dalna ho
-        //             console.log("Success")
-        //         }
-        //         else {
-        //             //Error action	
-        //         }
-        //     })
-        //     .catch(err => {
-        //         //Error action
-        //     });
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    "Type": sell,
+                    "Product": product,
+                    "Contact": number,
+                    "Purpose": purpose,
+                    "Amount": sellAmount,
+                    "Currency": sellCountry,
+                }
+            )
+        })
+            .then(res => {
+                if (res.status == 201) {
+                    //Tera success action joh dalna ho
+                    console.log("Success")
+                }
+                else {
+                    //Error action	
+                }
+            })
+            .catch(err => {
+                //Error action
+                console.log("Error sending email:", err);
+            });
 
         var docRef = db.collection("test").doc(sellCountry);
 
@@ -392,36 +394,37 @@ function sellChange() {
         let sellCountry = $('#sellCountry').val();
         let sellAmount = $('#sellAmount').val();
 
-        // let url = 'https://folksmedia.herokuapp.com/sendEmail'
+        let url = 'https://folksmedia.herokuapp.com/sendEmail'
 
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(
-        //         {
-        //             "Type": sell,
-        //             "Product": product,
-        //             "Contact": number,
-        //             "Purpose": purpose,
-        //             "Amount": sellAmount,
-        //             "Currency": sellCountry,
-        //         }
-        //     )
-        // })
-        //     .then(res => {
-        //         if (res.status == 201) {
-        //             //Tera success action joh dalna ho
-        //             console.log("Success")
-        //         }
-        //         else {
-        //             //Error action	
-        //         }
-        //     })
-        //     .catch(err => {
-        //         //Error action
-        //     });
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    "Type": sell,
+                    "Product": product,
+                    "Contact": number,
+                    "Purpose": purpose,
+                    "Amount": sellAmount,
+                    "Currency": sellCountry,
+                }
+            )
+        })
+            .then(res => {
+                if (res.status == 201) {
+                    //Tera success action joh dalna ho
+                    console.log("Success")
+                }
+                else {
+                    //Error action	
+                }
+            })
+            .catch(err => {
+                //Error action
+                console.log("Error sending email:", err);
+            });
 
         var docRef = db.collection("test").doc(sellCountry);
 
