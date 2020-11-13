@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Admin</title>
+    <style>
+        #tabs-with-content .tabs:not(:last-child) {
+            margin-bottom: 0;
+        }
+
+        #tabs-with-content .tab-content {
+            padding: 1rem;
+            display: none;
+        }
+
+        #tabs-with-content .tab-content.is-active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <div class="tile is-ancestor mr-3 ml-2">
+        <div class="tile is-parent is-6">
+            <article class="tile is-child ">
+                <figure class="image is-4by3">
+                    <img src="assets/images/converter.svg">
+                </figure>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child">
+                <div class=" is-6">
+                    <div id="tabs-with-content">
+                        <div class="tabs is-centered">
+                            <ul>
+                                <li><a>Buy</a></li>
+                                <li><a>Sell</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <section class="tab-content">
+                                <form action="#" method="post">
+                                    <input type="hidden" id="buy" value="Buy">
+                                    <div class="field">
+                                        <label class="label">Product</label>
+                                        <label>
+                                            <input type="radio" name="test" value="Forex">
+                                            <img src="assets/images/forex.svg">
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="test" value="Cash">
+                                            <img src="assets/images/Cash.svg">
+                                        </label>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Amount</label>
+                                        <div class="control">
+                                            <input class="input" type="text" id="inputAmount">
+                                        </div>
+                                    </div>
+                                    <div class="field has-addons">
+                                        <div class="control ">
+                                            <div class="select ">
+                                                <select name="country" id="country">
+                                                    <option disabled selected>Select a country</option>
+                                                    <option value="us">US Dollars (USD)</option>
+                                                    <option value="cnd">CANADA (CND)</option>
+                                                    <option value="gbp">British Pounds (GBP)</option>
+                                                    <option value="eur">Euro (EUR)</option>
+                                                    <option value="aed">United Arab Emirates (AED)</option>
+                                                    <option value="sgd">Singapore Dollar (SGD)</option>
+                                                    <option value="aud">Australian Dollar (AUD)</option>
+                                                    <option value="tbt">Thai Baht (TBT)</option>
+                                                    <option value="sdr">Saudi Riyal (SDR)</option>
+                                                    <option value="hkd">Hong Kong Dollar (HKD)</option>
+                                                    <option value="sfr">Swiss Franc (SFR)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button class="button is-primary" onclick="change()"
+                                                type="button">Update</button>
+                                        </div>
+                                    </div>
+                                </form><br>
+                                <input type="hidden" name="res" id="res" readonly class="input">
+                                <div id="coupon">
+                                </div>
+                            </section>
+
+                            <section class="tab-content">
+                                <form action="#" method="post">
+                                    <input type="hidden" id="sell" value="Sell">
+                                    <div class="field">
+                                        <label class="label">Product</label>
+                                        <label>
+                                            <input type="radio" name="test" value="Forex">
+                                            <img src="assets/images/forex.svg">
+                                        </label>
+
+                                        <label>
+                                            <input type="radio" name="test" value="Cash">
+                                            <img src="assets/images/Cash.svg">
+                                        </label>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Amount</label>
+                                        <div class="control">
+                                            <input class="input" type="text" id="sellAmount">
+                                        </div>
+                                    </div>
+                                    <div class="field has-addons">
+                                        <div class="control ">
+                                            <div class="select ">
+                                                <select name="country" id="sellCountry">
+                                                    <option disabled selected>Select a country</option>
+                                                    <option value="us">US Dollars (USD)</option>
+                                                    <option value="cnd">CANADA (CND)</option>
+                                                    <option value="gbp">British Pounds (GBP)</option>
+                                                    <option value="eur">Euro (EUR)</option>
+                                                    <option value="aed">United Arab Emirates (AED)</option>
+                                                    <option value="sgd">Singapore Dollar (SGD)</option>
+                                                    <option value="aud">Australian Dollar (AUD)</option>
+                                                    <option value="tbt">Thai Baht (TBT)</option>
+                                                    <option value="sdr">Saudi Riyal (SDR)</option>
+                                                    <option value="hkd">Hong Kong Dollar (HKD)</option>
+                                                    <option value="sfr">Swiss Franc (SFR)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button class="button is-primary" onclick="sellChange()"
+                                                type="button">Update</button>
+                                        </div>
+                                    </div>
+                                </form><br>
+                                <div id="sellCoupon">
+
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+
+                </div>
+            </article>
+        </div>
+    </div>
+
+
+    <!-- JS FILES -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+    <script>
+        // Initialize Cloud Firestore through Firebase
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCxkYqFu0SY3Z07PRxMy4Ru1lE7w4BjPSk",
+            authDomain: "test-fire-68434.firebaseapp.com",
+            databaseURL: "https://test-fire-68434.firebaseio.com",
+            projectId: "test-fire-68434",
+            storageBucket: "test-fire-68434.appspot.com",
+            messagingSenderId: "381311186050",
+            appId: "1:381311186050:web:6e4ecffbe380ff5523f09b",
+            measurementId: "G-CDDRFLWG2C"
+        };
+        // Initialize Firebase
+        firebase.initializeApp({
+            apiKey: 'AIzaSyCxkYqFu0SY3Z07PRxMy4Ru1lE7w4BjPSk',
+            authDomain: 'test-fire-68434.firebaseapp.com',
+            projectId: 'test-fire-68434'
+        });
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="assets/js/admin.js"></script>
+
+</body>
+
+</html>
