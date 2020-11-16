@@ -7,7 +7,7 @@ body {
 .logo {
     background: url('../images/Logo.svg') no-repeat;
     background-size: cover;
-    width: 110px;
+    width: 200px;
 }
 /* input[type=radio] {
     width: 5%;

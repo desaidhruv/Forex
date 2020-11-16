@@ -67,7 +67,8 @@ let tabsWithContent = (function () {
 
 
 // Converter Starts
-function change() {
+$('.buyButton').click( (e) => {
+    e.preventDefault();
     let radio = $('input[name="test"]:checked').val();
     console.log(radio)
     if (radio === 'Cash') {
@@ -80,34 +81,34 @@ function change() {
 
         let url = 'https://folksmedia.herokuapp.com/sendEmail'
 
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(
-                {
-                    "Type": buy,
-                    "Product": product,
-                    "Contact": number,
-                    "Purpose": purpose,
-                    "Amount": inputAmount,
-                    "Currency": country,
-                }
-            )
-        })
-            .then(res => {
-                if (res.status == 201) {
-                    //Tera success action joh dalna ho
-                    console.log("Success")
-                }
-                else {
-                    //Error action	
-                }
-            })
-            .catch(err => {
-                //Error action
-            });
+        // fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(
+        //         {
+        //             "Type": buy,
+        //             "Product": product,
+        //             "Contact": number,
+        //             "Purpose": purpose,
+        //             "Amount": inputAmount,
+        //             "Currency": country,
+        //         }
+        //     )
+        // })
+        //     .then(res => {
+        //         if (res.status == 201) {
+        //             //Tera success action joh dalna ho
+        //             console.log("Success")
+        //         }
+        //         else {
+        //             //Error action	
+        //         }
+        //     })
+        //     .catch(err => {
+        //         //Error action
+        //     });
 
         var docRef = db.collection("test").doc(country);
 
@@ -275,11 +276,15 @@ function change() {
             console.log("Error getting document:", error);
         });
     }
+})
+function change() {
+
 }
 // Converter Ends
 
 // Sell Starts
-function sellChange() {
+$('.sellButton').click( (e) => {
+    e.preventDefault();
     let radio = $('input[name="test"]:checked').val();
     console.log(radio)
     if (radio === 'Cash') {
@@ -358,7 +363,7 @@ function sellChange() {
                     <hr>
                     <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>`);
                 $('#sellClicked').click(function () {
                     let sellCode = $('#sellCoupon1').val();
@@ -374,6 +379,12 @@ function sellChange() {
                         console.log(payableAmount);
                         $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
                     }
+                })
+                $('#checkBtn').click(function () {
+                    $('#sellPhoneNumber').val('');
+                    $("#sellPurpose")[0].selectedIndex = 0;
+                    $('#sellAmount').val('');
+                    $("#sellCountry")[0].selectedIndex = 0;
                 })
 
 
@@ -488,5 +499,29 @@ function sellChange() {
             console.log("Error getting document:", error);
         });
     }
-}
+})
 // Sell Ends
+
+function validate() {
+    let number = document.getElementById('phoneNumber').value;
+
+    var error;
+
+    if (number == "") {
+        document.getElementById('NumberErr').innerHTML = "Enter your number";
+    } else {
+        var regex = /^[1-9]\d{9}$/;
+        if (regex.test(number) === false) {
+            document.getElementById('NumberErr').innerHTML = "Please enter a valid 10 digit number";
+        } else {
+            document.getElementById('NumberErr').innerHTML = "";
+            NumberErr = false;
+        }
+    }
+
+    if (error) {
+        return false;
+    } else {
+
+    }
+}

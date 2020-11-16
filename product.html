@@ -34,9 +34,6 @@
                     <a class="navbar-item" href="index.html#about">
                         About us
                     </a>
-                    <a class="navbar-item" href="index.html#mission">
-                        Mission
-                    </a>
                     <a class="navbar-item active" href="#">
                         Products
                     </a>
@@ -82,20 +79,22 @@
                                             <input type="radio" name="test" value="Forex">
                                             <img src="assets/images/forex.svg">
                                         </label>
-                                        
+
                                     </div>
                                     <div class="field">
                                         <label class="label">Phone Number</label>
                                         <div class="control">
-                                            <input class="input" type="text" id="phoneNumber">
+                                            <input class="input" type="text" onkeyup="return validate()"
+                                                id="phoneNumber">
+                                            <div id="NumberErr"></div>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <label class="label">Purpose</label>
                                         <div class="control">
                                             <div class="select">
-                                                <select id="purpose">
-                                                    <option>Select Purpose</option>
+                                                <select id="purpose" required>
+                                                    <option value="">Select Purpose</option>
                                                     <option>Personal Visit</option>
                                                     <option>Overseas Education</option>
                                                     <option>Business Travel</option>
@@ -108,14 +107,14 @@
                                     <div class="field">
                                         <label class="label">Amount</label>
                                         <div class="control">
-                                            <input class="input" type="text" id="inputAmount">
+                                            <input class="input" type="text" id="inputAmount" required>
                                         </div>
                                     </div>
                                     <div class="field has-addons">
                                         <div class="control ">
                                             <div class="select ">
-                                                <select name="country" id="country">
-                                                    <option disabled selected>Select a country</option>
+                                                <select name="country" id="country" required>
+                                                    <option value="">Select a currency</option>
                                                     <option value="us">US Dollars (USD)</option>
                                                     <option value="cnd">CANADA (CND)</option>
                                                     <option value="gbp">British Pounds (GBP)</option>
@@ -133,7 +132,7 @@
                                     </div>
                                     <div class="field is-grouped">
                                         <div class="control">
-                                            <button class="button is-primary" onclick="change()" type="button"
+                                            <button class="button is-primary buyButton" type="submit"
                                                 style="color: black;">
                                                 <strong>
                                                     CONVERT
@@ -166,15 +165,15 @@
                                     <div class="field">
                                         <label class="label">Phone Number</label>
                                         <div class="control">
-                                            <input class="input" type="text" id="sellPhoneNumber">
+                                            <input class="input" type="text" id="sellPhoneNumber" required>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <label class="label">Purpose</label>
                                         <div class="control">
                                             <div class="select">
-                                                <select id="sellPurpose">
-                                                    <option>Select Purpose</option>
+                                                <select id="sellPurpose" required>
+                                                    <option value="">Select Purpose</option>
                                                     <option>Personal Visit</option>
                                                     <option>Overseas Education</option>
                                                     <option>Business Travel</option>
@@ -187,14 +186,14 @@
                                     <div class="field">
                                         <label class="label">Amount</label>
                                         <div class="control">
-                                            <input class="input" type="text" id="sellAmount">
+                                            <input class="input" type="text" id="sellAmount" required>
                                         </div>
                                     </div>
                                     <div class="field has-addons">
                                         <div class="control ">
                                             <div class="select ">
-                                                <select name="country" id="sellCountry">
-                                                    <option disabled selected>Select a country</option>
+                                                <select name="country" id="sellCountry" required>
+                                                    <option value="">Select a country</option>
                                                     <option value="us">US Dollars (USD)</option>
                                                     <option value="cnd">CANADA (CND)</option>
                                                     <option value="gbp">British Pounds (GBP)</option>
@@ -212,7 +211,7 @@
                                     </div>
                                     <div class="field is-grouped">
                                         <div class="control">
-                                            <button class="button is-primary" onclick="sellChange()" type="button"
+                                            <button class="button is-primary sellButton" type="submit"
                                                 style="color: black;">
                                                 <strong>
                                                     CONVERT

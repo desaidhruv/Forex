@@ -171,9 +171,11 @@
                                 </div>
                                 <div class="media-content">
                                     <p class="title is-4">Location:</p>
-                                    <p class="subtitle is-6">Lorem Ipsum Press is licensed by Bionetwork Ltd. Our office
-                                        is located within the
-                                        company's building.</p>
+                                    <p class="subtitle is-6"><a id="location"
+                                            href="https://www.google.com/maps/place/Nand+Prem+Complex,+Mahatma+Gandhi+Rd,+Navpada,+Park+Road,+Vile+Parle,+Mumbai,+Maharashtra+400057/@19.0986746,72.8435204,17z/data=!4m8!1m2!2m1!1sShop+no:10%2F11+Nand+prem+shopping+centre+,MG+road+%26+Nehru+road+corner+,Near+Adhani+Bill+collection+centre,+vile+parle+East+,+Mumbai+-400057!3m4!1s0x3be7c9b3fd0bb53f:0x6f6b296a49328ed6!8m2!3d19.0986695!4d72.8457091">
+                                            Shop no:10/11 Nand prem shopping centre , MG road & Nehru road corner , Near
+                                            Adhani Bill collection centre, vile parle East,<br> Mumbai-400057
+                                        </a></p>
                                 </div>
                             </div>
                             <div class="media">
@@ -213,6 +215,39 @@
             </div>
         </div>
     </section>
+    <br>
+    <div class="container">
+        <div class="box">
+            <p class="is-size-1 has-text-centered">Highlights</p>
+            <hr>
+            <section class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading is-size-6">HAPPY CLIENTS</p>
+                        <p class="title" id="num" data-count="884">0</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading is-size-6">Successful transaction(%)</p>
+                        <p class="title" id="num" data-count="100">0</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading is-size-6">Year of business</p>
+                        <p class="title" data-count="8">0</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading is-size-6">Member since year</p>
+                        <p class="title" data-count="600">0</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
     <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
     <!-- JS FILES -->
@@ -246,6 +281,31 @@
                 scrollTop: $("#contact").offset().top
             }, 1000);
         });
+        window.onscroll = function () {
+            $('.title').each(function () {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
+
+                $({ countNum: $this.text() }).animate({
+                    countNum: countTo
+                },
+
+                    {
+
+                        duration: 2500,
+                        easing: 'linear',
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function () {
+                            $this.text(this.countNum);
+                            //alert('finished');
+                        }
+
+                    });
+
+            });
+        }
 
     </script>
 </body>
