@@ -4,6 +4,11 @@ body {
 .active {
     color: #00D1B2;
 }
+.logo {
+    background: url('../images/Logo.svg') no-repeat;
+    background-size: cover;
+    width: 110px;
+}
 /* input[type=radio] {
     width: 5%;
     height: 1em;
