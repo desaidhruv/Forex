@@ -64,7 +64,34 @@ let tabsWithContent = (function () {
 })();
 // Tab End
 
-
+// ===== Scroll to Top ==== 
+$(window).scroll(function () {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function () {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop: 0                       // Scroll to top of body
+    }, 500);
+});
+$("#button").click(function () {
+    $('html, body').animate({
+        scrollTop: $("#about").offset().top
+    }, 1000);
+});
+$("#button1").click(function () {
+    $('html, body').animate({
+        scrollTop: $("#mission").offset().top
+    }, 1000);
+});
+$("#button2").click(function () {
+    $('html, body').animate({
+        scrollTop: $("#contact").offset().top
+    }, 1000);
+});
 
 
 // Converter Starts
