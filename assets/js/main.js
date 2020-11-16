@@ -147,7 +147,8 @@ $('.buyButton').click((e) => {
                     <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
                     <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>`);
+                        checkout</strong></button>
+                    <div id="notification"></div>`);
                 $('#clicked').click(function () {
                     let code = $('#coupon1').val();
                     console.log(code);
@@ -168,6 +169,10 @@ $('.buyButton').click((e) => {
                     $("#purpose")[0].selectedIndex = 0;
                     $('#inputAmount').val('');
                     $("#country")[0].selectedIndex = 0;
+                    $('#notification').html(`<div class="notification is-primary is-light">
+                    <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+                    <strong>Thank you for visiting our website.</strong>
+                    </div>`);
                 })
 
 
@@ -506,6 +511,7 @@ $('.sellButton').click((e) => {
                     $("#sellPurpose")[0].selectedIndex = 0;
                     $('#sellAmount').val('');
                     $("#sellCountry")[0].selectedIndex = 0;
+                    $('#sellCoupon').html(`HELLO MOTHERFUCKA`);
                 })
 
 
@@ -533,6 +539,30 @@ function validate() {
             document.getElementById('NumberErr').innerHTML = "Please enter a valid 10 digit number";
         } else {
             document.getElementById('NumberErr').innerHTML = "";
+            NumberErr = false;
+        }
+    }
+
+    if (error) {
+        return false;
+    } else {
+
+    }
+}
+
+function sellValidate() {
+    let number = document.getElementById('sellPhoneNumber').value;
+
+    var error;
+
+    if (number == "") {
+        document.getElementById('NumberErr1').innerHTML = "Enter your number";
+    } else {
+        var regex = /^[1-9]\d{9}$/;
+        if (regex.test(number) === false) {
+            document.getElementById('NumberErr1').innerHTML = "Please enter a valid 10 digit number";
+        } else {
+            document.getElementById('NumberErr1').innerHTML = "";
             NumberErr = false;
         }
     }

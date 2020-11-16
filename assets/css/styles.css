@@ -89,3 +89,11 @@ body {
     color: #fff;
     top: 5px;
 }
+
+.notification {
+    position: absolute;
+    bottom: 510px;
+    right: 60px;
+    z-index: 5;
+    width: 350px;
+}

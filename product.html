@@ -165,7 +165,9 @@
                                     <div class="field">
                                         <label class="label">Phone Number</label>
                                         <div class="control">
-                                            <input class="input" type="text" id="sellPhoneNumber" required>
+                                            <input class="input" type="text" id="sellPhoneNumber"
+                                                onkeyup="return sellValidate()" required>
+                                            <div id="NumberErr1"></div>
                                         </div>
                                     </div>
                                     <div class="field">
