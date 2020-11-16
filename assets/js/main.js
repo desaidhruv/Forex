@@ -67,7 +67,7 @@ let tabsWithContent = (function () {
 
 
 // Converter Starts
-$('.buyButton').click( (e) => {
+$('.buyButton').click((e) => {
     e.preventDefault();
     let radio = $('input[name="test"]:checked').val();
     console.log(radio)
@@ -146,7 +146,7 @@ $('.buyButton').click( (e) => {
                     <hr>
                     <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>`);
                 $('#clicked').click(function () {
                     let code = $('#coupon1').val();
@@ -162,6 +162,12 @@ $('.buyButton').click( (e) => {
                         console.log(NewPayableAmount);
                         $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
                     }
+                })
+                $('#checkBtn').click(function () {
+                    $('#phoneNumber').val('');
+                    $("#purpose")[0].selectedIndex = 0;
+                    $('#inputAmount').val('');
+                    $("#country")[0].selectedIndex = 0;
                 })
 
 
@@ -249,7 +255,7 @@ $('.buyButton').click( (e) => {
                     <hr>
                     <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>`);
                 $('#clicked').click(function () {
                     let code = $('#coupon1').val();
@@ -265,6 +271,12 @@ $('.buyButton').click( (e) => {
                         console.log(NewPayableAmount);
                         $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
                     }
+                })
+                $('#checkBtn').click(function () {
+                    $('#phoneNumber').val('');
+                    $("#purpose")[0].selectedIndex = 0;
+                    $('#inputAmount').val('');
+                    $("#country")[0].selectedIndex = 0;
                 })
 
 
@@ -283,7 +295,7 @@ function change() {
 // Converter Ends
 
 // Sell Starts
-$('.sellButton').click( (e) => {
+$('.sellButton').click((e) => {
     e.preventDefault();
     let radio = $('input[name="test"]:checked').val();
     console.log(radio)
@@ -472,7 +484,7 @@ $('.sellButton').click( (e) => {
                     <hr>
                     <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary"><strong>Proceed to
+                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>`);
                 $('#sellClicked').click(function () {
                     let sellCode = $('#sellCoupon1').val();
@@ -488,6 +500,12 @@ $('.sellButton').click( (e) => {
                         console.log(payableAmount);
                         $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
                     }
+                })
+                $('#checkBtn').click(function () {
+                    $('#sellPhoneNumber').val('');
+                    $("#sellPurpose")[0].selectedIndex = 0;
+                    $('#sellAmount').val('');
+                    $("#sellCountry")[0].selectedIndex = 0;
                 })
 
 
