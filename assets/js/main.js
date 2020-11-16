@@ -122,7 +122,9 @@ $('.buyButton').click((e) => {
                 let result = inputAmount * multiplier;
                 let payableAmount = result + 300;
                 let coupon = $('#coupon');
-                coupon.html(`<p class="label">
+                coupon.html(`<p>These are the documents required*</p>
+                <img src="../images/Logo.svg">
+                <p class="label">
                     Have a coupon code?
                     </p>
                     <div class="field is-grouped ">
@@ -526,11 +528,12 @@ $('.sellButton').click((e) => {
 })
 // Sell Ends
 
+// Number Validations Starts
 function validate() {
     let number = document.getElementById('phoneNumber').value;
-
+    
     var error;
-
+    
     if (number == "") {
         document.getElementById('NumberErr').innerHTML = "Enter your number";
     } else {
@@ -542,19 +545,19 @@ function validate() {
             NumberErr = false;
         }
     }
-
+    
     if (error) {
         return false;
     } else {
-
+        
     }
 }
 
 function sellValidate() {
     let number = document.getElementById('sellPhoneNumber').value;
-
+    
     var error;
-
+    
     if (number == "") {
         document.getElementById('NumberErr1').innerHTML = "Enter your number";
     } else {
@@ -566,10 +569,51 @@ function sellValidate() {
             NumberErr = false;
         }
     }
-
+    
     if (error) {
         return false;
     } else {
-
+        
     }
+}
+// Number Validations Ends
+
+function show() {
+    let country = $('#country').val();
+    var docRef = db.collection("test").doc(country);
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            let country = $('#country').val();
+            console.log(country);
+            let multiplier = doc.data().currency;
+            console.log(multiplier);
+            $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
+}
+
+function showSell() {
+    let sellCountry = $('#sellCountry').val();
+    var docRef = db.collection("test").doc(sellCountry);
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            let sellCountry = $('#sellCountry').val();
+            console.log(sellCountry);
+            let multiplier = doc.data().sellCurrency;
+            console.log(multiplier);
+            $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });
 }

@@ -62,6 +62,7 @@
                             <ul>
                                 <li><a>Buy</a></li>
                                 <li><a>Sell</a></li>
+                                <li><a>Remit</a></li>
                             </ul>
                         </div>
                         <div>
@@ -113,7 +114,7 @@
                                     <div class="field has-addons">
                                         <div class="control ">
                                             <div class="select ">
-                                                <select name="country" id="country" required>
+                                                <select name="country" id="country" required onchange="show()">
                                                     <option value="">Select a currency</option>
                                                     <option value="us">US Dollars (USD)</option>
                                                     <option value="cnd">CANADA (CND)</option>
@@ -138,6 +139,7 @@
                                                     CONVERT
                                                 </strong>
                                             </button>
+                                            <p id="showCurrency"></p>
                                         </div>
                                     </div>
                                 </form><br>
@@ -194,7 +196,7 @@
                                     <div class="field has-addons">
                                         <div class="control ">
                                             <div class="select ">
-                                                <select name="country" id="sellCountry" required>
+                                                <select name="country" id="sellCountry" required onchange="showSell()">
                                                     <option value="">Select a country</option>
                                                     <option value="us">US Dollars (USD)</option>
                                                     <option value="cnd">CANADA (CND)</option>
@@ -219,6 +221,7 @@
                                                     CONVERT
                                                 </strong>
                                             </button>
+                                            <p id="showSellCurrency"></p>
                                         </div>
                                     </div>
                                 </form><br>
@@ -226,6 +229,10 @@
 
                                 </div>
                             </section>
+                            <section class="tab-content">
+                                For Further details Please click the <a href="#">Link</a>.
+                            </section>
+
                         </div>
                     </div>
 
