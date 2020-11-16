@@ -9,20 +9,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Products</title>
-    <style>
-        #tabs-with-content .tabs:not(:last-child) {
-            margin-bottom: 0;
-        }
-
-        #tabs-with-content .tab-content {
-            padding: 1rem;
-            display: none;
-        }
-
-        #tabs-with-content .tab-content.is-active {
-            display: block;
-        }
-    </style>
 </head>
 
 <body>
@@ -90,14 +76,15 @@
                                     <div class="field">
                                         <label class="label">Product</label>
                                         <label>
-                                            <input type="radio" name="test" value="Forex">
-                                            <img src="assets/images/forex.svg">
+                                            <input type="radio" name="test" value="Cash" checked>
+                                            <img src="assets/images/Cash.svg">
                                         </label>
 
                                         <label>
-                                            <input type="radio" name="test" value="Cash">
-                                            <img src="assets/images/Cash.svg">
+                                            <input type="radio" name="test" value="Forex">
+                                            <img src="assets/images/forex.svg">
                                         </label>
+                                        
                                     </div>
                                     <div class="field">
                                         <label class="label">Phone Number</label>
@@ -148,8 +135,12 @@
                                     </div>
                                     <div class="field is-grouped">
                                         <div class="control">
-                                            <button class="button is-primary" onclick="change()"
-                                                type="button">Convert</button>
+                                            <button class="button is-primary" onclick="change()" type="button"
+                                                style="color: black;">
+                                                <strong>
+                                                    CONVERT
+                                                </strong>
+                                            </button>
                                         </div>
                                     </div>
                                 </form><br>
@@ -164,14 +155,15 @@
                                     <div class="field">
                                         <label class="label">Product</label>
                                         <label>
+                                            <input type="radio" name="test" value="Cash" checked>
+                                            <img src="assets/images/Cash.svg">
+                                        </label>
+
+                                        <label>
                                             <input type="radio" name="test" value="Forex">
                                             <img src="assets/images/forex.svg">
                                         </label>
 
-                                        <label>
-                                            <input type="radio" name="test" value="Cash">
-                                            <img src="assets/images/Cash.svg">
-                                        </label>
                                     </div>
                                     <div class="field">
                                         <label class="label">Phone Number</label>
@@ -222,8 +214,12 @@
                                     </div>
                                     <div class="field is-grouped">
                                         <div class="control">
-                                            <button class="button is-primary" onclick="sellChange()"
-                                                type="button">Convert</button>
+                                            <button class="button is-primary" onclick="sellChange()" type="button"
+                                                style="color: black;">
+                                                <strong>
+                                                    CONVERT
+                                                </strong>
+                                            </button>
                                         </div>
                                     </div>
                                 </form><br>
