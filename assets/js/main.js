@@ -81,34 +81,34 @@ $('.buyButton').click((e) => {
 
         let url = 'https://folksmedia.herokuapp.com/sendEmail'
 
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(
-        //         {
-        //             "Type": buy,
-        //             "Product": product,
-        //             "Contact": number,
-        //             "Purpose": purpose,
-        //             "Amount": inputAmount,
-        //             "Currency": country,
-        //         }
-        //     )
-        // })
-        //     .then(res => {
-        //         if (res.status == 201) {
-        //             //Tera success action joh dalna ho
-        //             console.log("Success")
-        //         }
-        //         else {
-        //             //Error action	
-        //         }
-        //     })
-        //     .catch(err => {
-        //         //Error action
-        //     });
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    "Type": buy,
+                    "Product": product,
+                    "Contact": number,
+                    "Purpose": purpose,
+                    "Amount": inputAmount,
+                    "Currency": country,
+                }
+            )
+        })
+            .then(res => {
+                if (res.status == 201) {
+                    //Tera success action joh dalna ho
+                    console.log("Success")
+                }
+                else {
+                    //Error action	
+                }
+            })
+            .catch(err => {
+                //Error action
+            });
 
         var docRef = db.collection("test").doc(country);
 
