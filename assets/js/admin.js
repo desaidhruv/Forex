@@ -37,7 +37,23 @@ let tabsWithContent = (function () {
 // Tab End
 
 
+var docRef = db.collection("test").doc('us');
+docRef.get().then(function (doc) {
+    if (doc.exists) {
+        let multiplier = doc.data().forexCurrency;
+        let buy = doc.data().currency;
+        console.log(multiplier);
+        $('.buyForex').html(`₹ ${multiplier}`)
+        $('.buyCurrency').html(`₹ ${buy}`)
+        console.log(buy);
 
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function (error) {
+    console.log("Error getting document:", error);
+});
 
 // Converter Starts
 function change() {
@@ -47,14 +63,14 @@ function change() {
         let country = $('#country').val();
         let inputAmount = $('#inputAmount').val();
         let convertedAmount = parseFloat(inputAmount);
-        var docRef = db.collection("test").doc(country).update({currency: convertedAmount});
+        var docRef = db.collection("test").doc(country).update({ currency: convertedAmount });
 
     }
     else if (radio === 'Forex') {
         let country = $('#country').val();
         let inputAmount = $('#inputAmount').val();
         let convertedAmount = parseFloat(inputAmount);
-        var docRef = db.collection("test").doc(country).update({forexCurrency: convertedAmount});
+        var docRef = db.collection("test").doc(country).update({ forexCurrency: convertedAmount });
     }
 }
 // Converter Ends
@@ -67,14 +83,14 @@ function sellChange() {
         let sellCountry = $('#sellCountry').val();
         let sellAmount = $('#sellAmount').val();
         let convertedAmount = parseFloat(sellAmount);
-        var docRef = db.collection("test").doc(sellCountry).update({sellCurrency: convertedAmount});
+        var docRef = db.collection("test").doc(sellCountry).update({ sellCurrency: convertedAmount });
 
     }
     else if (radio === 'Forex') {
         let sellCountry = $('#sellCountry').val();
         let sellAmount = $('#sellAmount').val();
         let convertedAmount = parseFloat(sellAmount);
-        var docRef = db.collection("test").doc(sellCountry).update({sellForex: convertedAmount});
+        var docRef = db.collection("test").doc(sellCountry).update({ sellForex: convertedAmount });
 
     }
 }
