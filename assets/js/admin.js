@@ -54,8 +54,8 @@ function renderTable(doc) {
     sellForex.textContent = doc.data().sellForex;
     tr.appendChild(srno);
     tr.appendChild(currency);
-    tr.appendChild(buyCurrency);
     tr.appendChild(buyForex);
+    tr.appendChild(buyCurrency);
     tr.appendChild(sellCurrency);
     tr.appendChild(sellForex);
     tbody.appendChild(tr);
