@@ -77,6 +77,9 @@ function change() {
         let inputAmount = $('#inputAmount').val();
         let convertedAmount = parseFloat(inputAmount);
         var docRef = db.collection("test").doc(country).update({ currency: convertedAmount });
+        $('.message').html(`<div class="notification is-primary is-light">
+        <strong>Your value is updated, Please refresh the page to see the changes.</strong>
+        </div> `);
 
     }
     else if (radio === 'Forex') {
@@ -84,6 +87,9 @@ function change() {
         let inputAmount = $('#inputAmount').val();
         let convertedAmount = parseFloat(inputAmount);
         var docRef = db.collection("test").doc(country).update({ forexCurrency: convertedAmount });
+        $('.message').html(`<div class="notification is-primary is-light">
+        <strong>Your value is updated, Please refresh the page to see the changes.</strong>
+        </div> `);
     }
 }
 // Converter Ends
@@ -97,6 +103,9 @@ function sellChange() {
         let sellAmount = $('#sellAmount').val();
         let convertedAmount = parseFloat(sellAmount);
         var docRef = db.collection("test").doc(sellCountry).update({ sellCurrency: convertedAmount });
+        $('.message').html(`<div class="notification is-primary is-light">
+        <strong>Your value is updated, Please refresh the page to see the changes.</strong>
+        </div> `);
 
     }
     else if (radio === 'Forex') {
@@ -104,7 +113,9 @@ function sellChange() {
         let sellAmount = $('#sellAmount').val();
         let convertedAmount = parseFloat(sellAmount);
         var docRef = db.collection("test").doc(sellCountry).update({ sellForex: convertedAmount });
-
+        $('.message').html(`<div class="notification is-primary is-light">
+        <strong>Your value is updated, Please refresh the page to see the changes.</strong>
+        </div> `);
     }
 }
 // Sell Ends
