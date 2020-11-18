@@ -69,7 +69,7 @@ let tabsWithContent = (function () {
 // Converter Starts
 $('.buyButton').click((e) => {
     e.preventDefault();
-    let radio = $('input[name="test"]:checked').val();
+    let radio = $('input[name="buy"]:checked').val();
     console.log(radio)
     if (radio === 'Cash') {
         let buy = $('#buy').val();
@@ -120,10 +120,11 @@ $('.buyButton').click((e) => {
                 console.log(inputAmount * multiplier);
 
                 let result = inputAmount * multiplier;
-                let payableAmount = result + 300;
+                let gst = (result * 0.18).toFixed(2);
+                let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
+                let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
                 let coupon = $('#coupon');
-                coupon.html(`<p>These are the documents required*</p>
-                <img src="../images/Logo.svg">
+                coupon.html(`
                 <p class="label">
                     Have a coupon code?
                     </p>
@@ -141,9 +142,9 @@ $('.buyButton').click((e) => {
     
                     <p class="is-pulled-right">${result}</p>
                     <p>Sub Total</p>
-                    <p class="is-pulled-right">200</p>
+                    <p class="is-pulled-right">${gst}</p>
                     <p>GST</p>
-                    <p class="is-pulled-right">100</p>
+                    <p class="is-pulled-right">${serviceCharge}</p>
                     <p>Service Charge</p>
                     <hr>
                     <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
@@ -173,7 +174,7 @@ $('.buyButton').click((e) => {
                     $("#country")[0].selectedIndex = 0;
                     $('#notification').html(`<div class="notification is-primary is-light">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
-                    <strong>Thank you for visiting our website.</strong>
+                    <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
                 })
 
@@ -236,7 +237,9 @@ $('.buyButton').click((e) => {
                 console.log(inputAmount * multiplier);
 
                 let result = inputAmount * multiplier;
-                let payableAmount = result + 300;
+                let gst = (result * 0.18).toFixed(2);
+                let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
+                let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
                 let coupon = $('#coupon');
                 coupon.html(`<p class="label">
                     Have a coupon code?
@@ -255,15 +258,16 @@ $('.buyButton').click((e) => {
     
                     <p class="is-pulled-right">${result}</p>
                     <p>Sub Total</p>
-                    <p class="is-pulled-right">200</p>
+                    <p class="is-pulled-right">${gst}</p>
                     <p>GST</p>
-                    <p class="is-pulled-right">100</p>
+                    <p class="is-pulled-right">${serviceCharge}</p>
                     <p>Service Charge</p>
                     <hr>
                     <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
                     <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>`);
+                        checkout</strong></button>
+                        <div id="notification"></div>`);
                 $('#clicked').click(function () {
                     let code = $('#coupon1').val();
                     console.log(code);
@@ -284,6 +288,10 @@ $('.buyButton').click((e) => {
                     $("#purpose")[0].selectedIndex = 0;
                     $('#inputAmount').val('');
                     $("#country")[0].selectedIndex = 0;
+                    $('#notification').html(`<div class="notification is-primary is-light">
+                    <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+                    <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
+                    </div>`);
                 })
 
 
@@ -304,7 +312,7 @@ function change() {
 // Sell Starts
 $('.sellButton').click((e) => {
     e.preventDefault();
-    let radio = $('input[name="test"]:checked').val();
+    let radio = $('input[name="sell"]:checked').val();
     console.log(radio)
     if (radio === 'Cash') {
         let sell = $('#sell').val();
@@ -356,7 +364,9 @@ $('.sellButton').click((e) => {
                 console.log(sellAmount * sellMultiplier);
 
                 let sellResult = sellAmount * sellMultiplier;
-                let payableAmount = sellResult - 300;
+                let gst = (sellResult * 0.18).toFixed(2);
+                let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
+                let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
                 let sellCoupon = $('#sellCoupon');
                 sellCoupon.html(`<p class="label">
                     Have a coupon code?
@@ -375,15 +385,16 @@ $('.sellButton').click((e) => {
     
                     <p class="is-pulled-right">${sellResult}</p>
                     <p>Sub Total</p>
-                    <p class="is-pulled-right">200</p>
+                    <p class="is-pulled-right">${gst}</p>
                     <p>GST</p>
-                    <p class="is-pulled-right">100</p>
+                    <p class="is-pulled-right">${serviceCharge}</p>
                     <p>Service Charge</p>
                     <hr>
                     <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
                     <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>`);
+                        checkout</strong></button>
+                        <div id="notification"></div>`);
                 $('#sellClicked').click(function () {
                     let sellCode = $('#sellCoupon1').val();
                     console.log(sellCode);
@@ -404,6 +415,10 @@ $('.sellButton').click((e) => {
                     $("#sellPurpose")[0].selectedIndex = 0;
                     $('#sellAmount').val('');
                     $("#sellCountry")[0].selectedIndex = 0;
+                    $('#notification').html(`<div class="notification is-primary is-light">
+                    <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+                    <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
+                    </div>`);
                 })
 
 
@@ -465,7 +480,9 @@ $('.sellButton').click((e) => {
                 console.log(sellAmount * sellMultiplier);
 
                 let sellResult = sellAmount * sellMultiplier;
-                let payableAmount = sellResult - 300;
+                let gst = (sellResult * 0.18).toFixed(2);
+                let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
+                let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
                 let sellCoupon = $('#sellCoupon');
                 sellCoupon.html(`<p class="label">
                     Have a coupon code?
@@ -484,15 +501,16 @@ $('.sellButton').click((e) => {
     
                     <p class="is-pulled-right">${sellResult}</p>
                     <p>Sub Total</p>
-                    <p class="is-pulled-right">200</p>
+                    <p class="is-pulled-right">${gst}</p>
                     <p>GST</p>
-                    <p class="is-pulled-right">100</p>
+                    <p class="is-pulled-right">${serviceCharge}</p>
                     <p>Service Charge</p>
                     <hr>
                     <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
                     <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>`);
+                        checkout</strong></button>
+                        <div id="notification"></div>`);
                 $('#sellClicked').click(function () {
                     let sellCode = $('#sellCoupon1').val();
                     console.log(sellCode);
@@ -513,7 +531,10 @@ $('.sellButton').click((e) => {
                     $("#sellPurpose")[0].selectedIndex = 0;
                     $('#sellAmount').val('');
                     $("#sellCountry")[0].selectedIndex = 0;
-                    $('#sellCoupon').html(`HELLO MOTHERFUCKA`);
+                    $('#notification').html(`<div class="notification is-primary is-light">
+                    <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+                    <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
+                    </div>`);
                 })
 
 
@@ -579,41 +600,87 @@ function sellValidate() {
 // Number Validations Ends
 
 function show() {
-    let country = $('#country').val();
-    var docRef = db.collection("test").doc(country);
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            let country = $('#country').val();
-            console.log(country);
-            let multiplier = doc.data().currency;
-            console.log(multiplier);
-            $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
-
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
+    let radio = $('input[name="buy"]:checked').val();
+    console.log(radio);
+    if (radio == 'Cash') {
+        let country = $('#country').val();
+        var docRef = db.collection("test").doc(country);
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let country = $('#country').val();
+                console.log(country);
+                let multiplier = doc.data().forexCurrency;
+                console.log(multiplier);
+                $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
+    
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }
+    else if (radio === 'Forex') {
+        let country = $('#country').val();
+        var docRef = db.collection("test").doc(country);
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let country = $('#country').val();
+                console.log(country);
+                let multiplier = doc.data().forexCurrency;
+                console.log(multiplier);
+                $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
+    
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }
 }
 
 function showSell() {
-    let sellCountry = $('#sellCountry').val();
-    var docRef = db.collection("test").doc(sellCountry);
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            let sellCountry = $('#sellCountry').val();
-            console.log(sellCountry);
-            let multiplier = doc.data().sellCurrency;
-            console.log(multiplier);
-            $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
-
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
+    let radio = $('input[name="sell"]:checked').val();
+    console.log(radio);
+    if (radio == 'Cash') {
+        let sellCountry = $('#sellCountry').val();
+        var docRef = db.collection("test").doc(sellCountry);
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let sellCountry = $('#sellCountry').val();
+                console.log(sellCountry);
+                let multiplier = doc.data().sellCurrency;
+                console.log(multiplier);
+                $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
+    
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }
+    else if (radio == 'Forex') {
+        let sellCountry = $('#sellCountry').val();
+        var docRef = db.collection("test").doc(sellCountry);
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                let sellCountry = $('#sellCountry').val();
+                console.log(sellCountry);
+                let multiplier = doc.data().sellForex;
+                console.log(multiplier);
+                $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
+    
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });        
+    }
 }

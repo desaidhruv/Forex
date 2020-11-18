@@ -92,7 +92,7 @@ body {
 
 .notification {
     position: absolute;
-    bottom: 510px;
+    bottom: 10px;
     right: 60px;
     z-index: 5;
     width: 350px;
