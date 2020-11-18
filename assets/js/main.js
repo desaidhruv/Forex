@@ -123,6 +123,12 @@ $('.buyButton').click((e) => {
                 let gst = (result * 0.18).toFixed(2);
                 let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
+                $('.hello').html(`<p class="">These documents are required <span style="color: red;">*</span></p>`);
+                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var image = new Image();
+                image.src = urlimg;
+                document.querySelector('.hello').appendChild(image);
+
                 let coupon = $('#coupon');
                 coupon.html(`
                 <p class="label">
@@ -367,6 +373,7 @@ $('.sellButton').click((e) => {
                 let gst = (sellResult * 0.18).toFixed(2);
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
+
                 let sellCoupon = $('#sellCoupon');
                 sellCoupon.html(`<p class="label">
                     Have a coupon code?
@@ -483,6 +490,7 @@ $('.sellButton').click((e) => {
                 let gst = (sellResult * 0.18).toFixed(2);
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
+
                 let sellCoupon = $('#sellCoupon');
                 sellCoupon.html(`<p class="label">
                     Have a coupon code?
@@ -552,9 +560,9 @@ $('.sellButton').click((e) => {
 // Number Validations Starts
 function validate() {
     let number = document.getElementById('phoneNumber').value;
-    
+
     var error;
-    
+
     if (number == "") {
         document.getElementById('NumberErr').innerHTML = "Enter your number";
     } else {
@@ -566,19 +574,19 @@ function validate() {
             NumberErr = false;
         }
     }
-    
+
     if (error) {
         return false;
     } else {
-        
+
     }
 }
 
 function sellValidate() {
     let number = document.getElementById('sellPhoneNumber').value;
-    
+
     var error;
-    
+
     if (number == "") {
         document.getElementById('NumberErr1').innerHTML = "Enter your number";
     } else {
@@ -590,11 +598,11 @@ function sellValidate() {
             NumberErr = false;
         }
     }
-    
+
     if (error) {
         return false;
     } else {
-        
+
     }
 }
 // Number Validations Ends
@@ -612,7 +620,7 @@ function show() {
                 let multiplier = doc.data().currency;
                 console.log(multiplier);
                 $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
-    
+
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
@@ -631,7 +639,7 @@ function show() {
                 let multiplier = doc.data().forexCurrency;
                 console.log(multiplier);
                 $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
-    
+
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
@@ -655,7 +663,7 @@ function showSell() {
                 let multiplier = doc.data().sellCurrency;
                 console.log(multiplier);
                 $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
-    
+
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
@@ -674,13 +682,13 @@ function showSell() {
                 let multiplier = doc.data().sellForex;
                 console.log(multiplier);
                 $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
-    
+
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
             }
         }).catch(function (error) {
             console.log("Error getting document:", error);
-        });        
+        });
     }
 }
