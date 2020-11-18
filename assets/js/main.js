@@ -609,7 +609,7 @@ function show() {
             if (doc.exists) {
                 let country = $('#country').val();
                 console.log(country);
-                let multiplier = doc.data().forexCurrency;
+                let multiplier = doc.data().currency;
                 console.log(multiplier);
                 $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
     
