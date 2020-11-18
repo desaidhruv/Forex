@@ -35,25 +35,38 @@ let tabsWithContent = (function () {
     tabs[0].click();
 })();
 // Tab End
-
-
-var docRef = db.collection("test").doc('us');
-docRef.get().then(function (doc) {
-    if (doc.exists) {
-        let multiplier = doc.data().forexCurrency;
-        let buy = doc.data().currency;
-        console.log(multiplier);
-        $('.buyForex').html(`₹ ${multiplier}`)
-        $('.buyCurrency').html(`₹ ${buy}`)
-        console.log(buy);
-
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch(function (error) {
-    console.log("Error getting document:", error);
-});
+//Table Data Starts
+let tbody = document.querySelector('.tbody');
+let i = 1;
+function renderTable(doc) {
+    let tr = document.createElement('tr');
+    let currency = document.createElement('td');
+    let srno = document.createElement('td');
+    let buyCurrency = document.createElement('td');
+    let buyForex = document.createElement('td');
+    let sellCurrency = document.createElement('td');
+    let sellForex = document.createElement('td');
+    srno.textContent = i++;
+    currency.textContent = doc.id;
+    buyCurrency.textContent = doc.data().currency;
+    buyForex.textContent = doc.data().forexCurrency;
+    sellCurrency.textContent = doc.data().sellCurrency;
+    sellForex.textContent = doc.data().sellForex;
+    tr.appendChild(srno);
+    tr.appendChild(currency);
+    tr.appendChild(buyCurrency);
+    tr.appendChild(buyForex);
+    tr.appendChild(sellCurrency);
+    tr.appendChild(sellForex);
+    tbody.appendChild(tr);
+}
+db.collection('test').get().then((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+        // console.log(doc.data());
+        renderTable(doc);
+    })
+})
+//Table Data Ends
 
 // Converter Starts
 function change() {
