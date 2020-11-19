@@ -2,7 +2,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 .active {
-    color: #00D1B2;
+    color: #E61B49;
+}
+.navbar-item:hover {
+    color: #E61B49 !important;
 }
 .logo {
     background: url('../images/Logo.svg') no-repeat;
@@ -127,4 +130,34 @@ body {
 .instagram {
     background: #7232bd;
     color: white;
+}
+.header {
+    font-size: 2rem !important;
+    font-weight: bold !important;
+}
+
+@media (max-width: 768px){
+    
+    .icon-bar a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        transition: all 0.3s ease;
+        color: white;
+        font-size: 15px;
+    }
+    .services {
+        height: 20px;
+        width: 20px;
+    }
+    .missiontxt {
+        font-size: 1.8rem !important;
+    }
+    .text {
+        font-size: 1.1rem !important;
+    }
+    .header {
+        font-size: 1.8rem !important;
+        font-weight: bold !important;
+    }
 }
