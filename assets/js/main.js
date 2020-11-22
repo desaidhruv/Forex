@@ -565,13 +565,16 @@ function validate() {
 
     if (number == "") {
         document.getElementById('NumberErr').innerHTML = "Enter your number";
+        $('.button').removeAttr('disabled');
     } else {
         var regex = /^[1-9]\d{9}$/;
         if (regex.test(number) === false) {
             document.getElementById('NumberErr').innerHTML = "Please enter a valid 10 digit number";
+            $('.button').attr('disabled', 'disabled');
         } else {
             document.getElementById('NumberErr').innerHTML = "";
             NumberErr = false;
+            $('.button').removeAttr('disabled');
         }
     }
 
