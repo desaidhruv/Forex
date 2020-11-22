@@ -155,7 +155,7 @@ $('.buyButton').click((e) => {
                     <hr>
                     <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
+                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>
                     <div id="notification"></div>`);
                 $('#clicked').click(function () {
@@ -178,7 +178,7 @@ $('.buyButton').click((e) => {
                     $("#purpose")[0].selectedIndex = 0;
                     $('#inputAmount').val('');
                     $("#country")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-primary is-light">
+                    $('#notification').html(`<div class="notification is-light">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
@@ -271,7 +271,7 @@ $('.buyButton').click((e) => {
                     <hr>
                     <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
+                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>
                         <div id="notification"></div>`);
                 $('#clicked').click(function () {
@@ -294,7 +294,7 @@ $('.buyButton').click((e) => {
                     $("#purpose")[0].selectedIndex = 0;
                     $('#inputAmount').val('');
                     $("#country")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-primary is-light">
+                    $('#notification').html(`<div class="notification is-light">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
@@ -399,7 +399,7 @@ $('.sellButton').click((e) => {
                     <hr>
                     <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
+                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>
                         <div id="notification"></div>`);
                 $('#sellClicked').click(function () {
@@ -422,7 +422,7 @@ $('.sellButton').click((e) => {
                     $("#sellPurpose")[0].selectedIndex = 0;
                     $('#sellAmount').val('');
                     $("#sellCountry")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-primary is-light">
+                    $('#notification').html(`<div class="notification is-light">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
@@ -516,7 +516,7 @@ $('.sellButton').click((e) => {
                     <hr>
                     <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
                     <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light is-primary" id="checkBtn"><strong>Proceed to
+                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
                         checkout</strong></button>
                         <div id="notification"></div>`);
                 $('#sellClicked').click(function () {
@@ -539,7 +539,7 @@ $('.sellButton').click((e) => {
                     $("#sellPurpose")[0].selectedIndex = 0;
                     $('#sellAmount').val('');
                     $("#sellCountry")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-primary is-light">
+                    $('#notification').html(`<div class="notification is-light">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
