@@ -6,9 +6,9 @@ body {
     font-weight: 600;
 }
 .active {
-    color: #E61B49;
+    color: #FF0000;
     font-weight: 700;
-    border-bottom: 2px solid #E61B49;
+    border-bottom: 2px solid #FF0000;
 }
 .navbar-item:hover {
     color: #E61B49 !important;

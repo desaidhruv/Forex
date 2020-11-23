@@ -123,11 +123,11 @@ $('.buyButton').click((e) => {
                 let gst = (result * 0.18).toFixed(2);
                 let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
-                $('.hello').html(`<p class="">These documents are required <span style="color: red;">*</span></p>`);
+                $('.documents').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
                 var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
                 var image = new Image();
                 image.src = urlimg;
-                document.querySelector('.hello').appendChild(image);
+                document.querySelector('.documents').appendChild(image);
 
                 let coupon = $('#coupon');
                 coupon.html(`
@@ -246,6 +246,12 @@ $('.buyButton').click((e) => {
                 let gst = (result * 0.18).toFixed(2);
                 let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
+                $('.documents').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
+                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var image = new Image();
+                image.src = urlimg;
+                document.querySelector('.documents').appendChild(image);
+
                 let coupon = $('#coupon');
                 coupon.html(`<p class="label">
                     Have a coupon code?
@@ -373,6 +379,11 @@ $('.sellButton').click((e) => {
                 let gst = (sellResult * 0.18).toFixed(2);
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
+                $('.documentSell').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
+                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var image = new Image();
+                image.src = urlimg;
+                document.querySelector('.documentSell').appendChild(image);
 
                 let sellCoupon = $('#sellCoupon');
                 sellCoupon.html(`<p class="label">
@@ -490,6 +501,11 @@ $('.sellButton').click((e) => {
                 let gst = (sellResult * 0.18).toFixed(2);
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
+                $('.documentSell').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
+                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var image = new Image();
+                image.src = urlimg;
+                document.querySelector('.documentSell').appendChild(image);
 
                 let sellCoupon = $('#sellCoupon');
                 sellCoupon.html(`<p class="label">
@@ -592,13 +608,16 @@ function sellValidate() {
 
     if (number == "") {
         document.getElementById('NumberErr1').innerHTML = "Enter your number";
+        $('.button').removeAttr('disabled');
     } else {
         var regex = /^[1-9]\d{9}$/;
         if (regex.test(number) === false) {
             document.getElementById('NumberErr1').innerHTML = "Please enter a valid 10 digit number";
+            $('.button').attr('disabled', 'disabled');
         } else {
             document.getElementById('NumberErr1').innerHTML = "";
             NumberErr = false;
+            $('.button').removeAttr('disabled');
         }
     }
 
