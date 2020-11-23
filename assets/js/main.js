@@ -123,7 +123,7 @@ $('.buyButton').click((e) => {
                 let gst = (result * 0.18).toFixed(2);
                 let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
-                $('.documents').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
+                $('.documents').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
                 var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
                 var image = new Image();
                 image.src = urlimg;
@@ -139,24 +139,24 @@ $('.buyButton').click((e) => {
                         <input class="input" type="text" placeholder="Code" id="coupon1">
                     </p>
                     <p class="control btn">
-                        <button class="button is-info" id="clicked">
+                        <button class="button is-danger" id="clicked">
                             APPLY
                         </button>
                     </p>
                     </div>
                     <hr>
     
-                    <p class="is-pulled-right">${result}</p>
-                    <p>Sub Total</p>
-                    <p class="is-pulled-right">${gst}</p>
-                    <p>GST</p>
-                    <p class="is-pulled-right">${serviceCharge}</p>
-                    <p>Service Charge</p>
+                    <p class="is-pulled-right label">${result}</p>
+                    <p class="label">Sub Total</p>
+                    <p class="is-pulled-right label">${gst}</p>
+                    <p class="label">GST</p>
+                    <p class="is-pulled-right label">${serviceCharge}</p>
+                    <p class="label">Service Charge</p>
                     <hr>
-                    <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
-                    <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>
+                    <p class="is-pulled-right couponValue label">₹ ${payableAmount}</p>
+                    <p class="label">Amount Payable</p><br>
+                    <button class="button is-pulled-right is-danger" id="checkBtn"><strong>Proceed to
+                        checkout</strong></button><br><br>
                     <div id="notification"></div>`);
                 $('#clicked').click(function () {
                     let code = $('#coupon1').val();
@@ -165,12 +165,12 @@ $('.buyButton').click((e) => {
                     if (code == 'NEW') {
                         NewPayableAmount = payableAmount - 200;
                         console.log(NewPayableAmount);
-                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                     if (code == 'NEW1') {
                         NewPayableAmount = payableAmount - 400;
                         console.log(NewPayableAmount);
-                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                 })
                 $('#checkBtn').click(function () {
@@ -178,7 +178,7 @@ $('.buyButton').click((e) => {
                     $("#purpose")[0].selectedIndex = 0;
                     $('#inputAmount').val('');
                     $("#country")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-light">
+                    $('#notification').html(`<div class="notification is-danger">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
@@ -246,7 +246,7 @@ $('.buyButton').click((e) => {
                 let gst = (result * 0.18).toFixed(2);
                 let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
-                $('.documents').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
+                $('.documents').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
                 var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
                 var image = new Image();
                 image.src = urlimg;
@@ -261,24 +261,24 @@ $('.buyButton').click((e) => {
                         <input class="input" type="text" placeholder="Code" id="coupon1">
                     </p>
                     <p class="control btn">
-                        <button class="button is-info" id="clicked">
+                        <button class="button is-danger" id="clicked">
                             APPLY
                         </button>
                     </p>
                     </div>
                     <hr>
     
-                    <p class="is-pulled-right">${result}</p>
-                    <p>Sub Total</p>
-                    <p class="is-pulled-right">${gst}</p>
-                    <p>GST</p>
-                    <p class="is-pulled-right">${serviceCharge}</p>
-                    <p>Service Charge</p>
+                    <p class="is-pulled-right label">${result}</p>
+                    <p class="label">Sub Total</p>
+                    <p class="is-pulled-right label">${gst}</p>
+                    <p class="label">GST</p>
+                    <p class="is-pulled-right label">${serviceCharge}</p>
+                    <p class="label">Service Charge</p>
                     <hr>
-                    <p class="is-pulled-right couponValue">₹ ${payableAmount}</p>
-                    <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>
+                    <p class="is-pulled-right couponValue label">₹ ${payableAmount}</p>
+                    <p class="label">Amount Payable</p><br>
+                    <button class="button is-pulled-right is-danger" id="checkBtn"><strong>Proceed to
+                        checkout</strong></button><br><br>
                         <div id="notification"></div>`);
                 $('#clicked').click(function () {
                     let code = $('#coupon1').val();
@@ -287,12 +287,12 @@ $('.buyButton').click((e) => {
                     if (code == 'NEW') {
                         NewPayableAmount = payableAmount - 200;
                         console.log(NewPayableAmount);
-                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                     if (code == 'NEW1') {
                         NewPayableAmount = payableAmount - 400;
                         console.log(NewPayableAmount);
-                        $('.couponValue').html(`<p class="is-pulled-right couponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.couponValue').html(`<p class="is-pulled-right couponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                 })
                 $('#checkBtn').click(function () {
@@ -300,7 +300,7 @@ $('.buyButton').click((e) => {
                     $("#purpose")[0].selectedIndex = 0;
                     $('#inputAmount').val('');
                     $("#country")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-light">
+                    $('#notification').html(`<div class="notification is-danger">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
@@ -316,9 +316,6 @@ $('.buyButton').click((e) => {
         });
     }
 })
-function change() {
-
-}
 // Converter Ends
 
 // Sell Starts
@@ -379,7 +376,7 @@ $('.sellButton').click((e) => {
                 let gst = (sellResult * 0.18).toFixed(2);
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
-                $('.documentSell').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
+                $('.documentSell').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
                 var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
                 var image = new Image();
                 image.src = urlimg;
@@ -394,24 +391,24 @@ $('.sellButton').click((e) => {
                         <input class="input" type="text" placeholder="Code" id="sellCoupon1">
                     </p>
                     <p class="control btn">
-                        <button class="button is-info" id="sellClicked">
+                        <button class="button is-danger" id="sellClicked">
                             APPLY
                         </button>
                     </p>
                     </div>
                     <hr>
     
-                    <p class="is-pulled-right">${sellResult}</p>
-                    <p>Sub Total</p>
-                    <p class="is-pulled-right">${gst}</p>
-                    <p>GST</p>
-                    <p class="is-pulled-right">${serviceCharge}</p>
-                    <p>Service Charge</p>
+                    <p class="is-pulled-right label">${sellResult}</p>
+                    <p class="label">Sub Total</p>
+                    <p class="is-pulled-right label">${gst}</p>
+                    <p class="label">GST</p>
+                    <p class="is-pulled-right label">${serviceCharge}</p>
+                    <p class="label">Service Charge</p>
                     <hr>
-                    <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
-                    <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>
+                    <p class="is-pulled-right sellCouponValue label">₹ ${payableAmount}</p>
+                    <p class="label">Amount Payable</p><br>
+                    <button class="button is-pulled-right is-danger" id="checkBtn"><strong>Proceed to
+                        checkout</strong></button><br><br>
                         <div id="notification"></div>`);
                 $('#sellClicked').click(function () {
                     let sellCode = $('#sellCoupon1').val();
@@ -420,12 +417,12 @@ $('.sellButton').click((e) => {
                     if (sellCode == 'NEW') {
                         NewPayableAmount = payableAmount + 200;
                         console.log(NewPayableAmount);
-                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                     if (sellCode == 'NEW1') {
                         NewPayableAmount = payableAmount + 400;
                         console.log(payableAmount);
-                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                 })
                 $('#checkBtn').click(function () {
@@ -433,7 +430,7 @@ $('.sellButton').click((e) => {
                     $("#sellPurpose")[0].selectedIndex = 0;
                     $('#sellAmount').val('');
                     $("#sellCountry")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-light">
+                    $('#notification').html(`<div class="notification is-danger">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
@@ -501,7 +498,7 @@ $('.sellButton').click((e) => {
                 let gst = (sellResult * 0.18).toFixed(2);
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
-                $('.documentSell').html(`<p>These documents are required <span style="color: red;">*</span></p>`);
+                $('.documentSell').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
                 var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
                 var image = new Image();
                 image.src = urlimg;
@@ -516,24 +513,24 @@ $('.sellButton').click((e) => {
                         <input class="input" type="text" placeholder="Code" id="sellCoupon1">
                     </p>
                     <p class="control btn">
-                        <button class="button is-info" id="sellClicked">
+                        <button class="button is-danger" id="sellClicked">
                             APPLY
                         </button>
                     </p>
                     </div>
                     <hr>
     
-                    <p class="is-pulled-right">${sellResult}</p>
-                    <p>Sub Total</p>
-                    <p class="is-pulled-right">${gst}</p>
-                    <p>GST</p>
-                    <p class="is-pulled-right">${serviceCharge}</p>
-                    <p>Service Charge</p>
+                    <p class="is-pulled-right label">${sellResult}</p>
+                    <p class="label">Sub Total</p>
+                    <p class="is-pulled-right label">${gst}</p>
+                    <p class="label">GST</p>
+                    <p class="is-pulled-right label">${serviceCharge}</p>
+                    <p class="label">Service Charge</p>
                     <hr>
-                    <p class="is-pulled-right sellCouponValue">₹ ${payableAmount}</p>
-                    <p>Amount Payable</p><br>
-                    <button class="button is-pulled-right is-light" id="checkBtn"><strong>Proceed to
-                        checkout</strong></button>
+                    <p class="is-pulled-right sellCouponValue label">₹ ${payableAmount}</p>
+                    <p class="label">Amount Payable</p><br>
+                    <button class="button is-pulled-right is-danger" id="checkBtn"><strong>Proceed to
+                        checkout</strong></button><br><br>
                         <div id="notification"></div>`);
                 $('#sellClicked').click(function () {
                     let sellCode = $('#sellCoupon1').val();
@@ -542,12 +539,12 @@ $('.sellButton').click((e) => {
                     if (sellCode == 'NEW') {
                         NewPayableAmount = payableAmount + 200;
                         console.log(NewPayableAmount);
-                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                     if (sellCode == 'NEW1') {
                         NewPayableAmount = payableAmount + 400;
                         console.log(payableAmount);
-                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue">₹ ${NewPayableAmount}</p>`)
+                        $('.sellCouponValue').html(`<p class="is-pulled-right sellCouponValue label">₹ ${NewPayableAmount}</p>`)
                     }
                 })
                 $('#checkBtn').click(function () {
@@ -555,7 +552,7 @@ $('.sellButton').click((e) => {
                     $("#sellPurpose")[0].selectedIndex = 0;
                     $('#sellAmount').val('');
                     $("#sellCountry")[0].selectedIndex = 0;
-                    $('#notification').html(`<div class="notification is-light">
+                    $('#notification').html(`<div class="notification is-danger">
                     <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                     <strong>Thank you for visiting our website.We will get back to you shortly.</strong>
                     </div>`);
@@ -641,7 +638,7 @@ function show() {
                 console.log(country);
                 let multiplier = doc.data().currency;
                 console.log(multiplier);
-                $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
+                $('#showCurrency').html(`<p class="label">1 ${country} = ₹ ${multiplier}</p>`)
 
             } else {
                 // doc.data() will be undefined in this case
@@ -660,7 +657,7 @@ function show() {
                 console.log(country);
                 let multiplier = doc.data().forexCurrency;
                 console.log(multiplier);
-                $('#showCurrency').html(`1 ${country} = ₹ ${multiplier}`)
+                $('#showCurrency').html(`<p class="label">1 ${country} = ₹ ${multiplier}</p>`)
 
             } else {
                 // doc.data() will be undefined in this case
@@ -684,7 +681,7 @@ function showSell() {
                 console.log(sellCountry);
                 let multiplier = doc.data().sellCurrency;
                 console.log(multiplier);
-                $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
+                $('#showSellCurrency').html(`<p class="label">1 ${sellCountry} = ₹ ${multiplier}</p>`)
 
             } else {
                 // doc.data() will be undefined in this case
@@ -703,7 +700,7 @@ function showSell() {
                 console.log(sellCountry);
                 let multiplier = doc.data().sellForex;
                 console.log(multiplier);
-                $('#showSellCurrency').html(`1 ${sellCountry} = ₹ ${multiplier}`)
+                $('#showSellCurrency').html(`<p class="label">1 ${sellCountry} = ₹ ${multiplier}</p>`)
 
             } else {
                 // doc.data() will be undefined in this case

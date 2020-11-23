@@ -10,6 +10,29 @@
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Products</title>
+    <style>
+        .hero.is-small {
+            background: linear-gradient(rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.6)), url('5c280e6a-deb3-44a3-8baa-ab788c0cca6d.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .label,.txt {
+            color: white !important;
+        }
+        .tabs.is-toggle li.is-active a {
+            background-color: red !important;
+            border-color: red !important;
+        }
+        .txt:hover {
+            background-color:red !important;
+        }
+        .button {
+            background-color: red !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,6 +63,9 @@
                         <a class="navbar-item active" href="#">
                             Products
                         </a>
+                        <a class="navbar-item" href="services.html">
+                            Services
+                        </a>
                         <a class="navbar-item" href="FAQs.html">
                             FAQs
                         </a>
@@ -52,213 +78,208 @@
         </nav>
     </div>
     <!-- NAVBAR ENDS -->
-    <br>
-    <div class="tile is-ancestor mr-3 ml-2">
-        <div class="tile is-parent is-6">
-            <article class="tile is-child ">
-                <figure class="image is-4by3">
-                    <img src="assets/images/converter.svg">
-                </figure>
-            </article>
-        </div>
-        <div class="tile is-parent">
-            <article class="tile is-child">
-                <div class=" is-6">
-                    <div id="tabs-with-content">
-                        <div class="tabs is-centered">
-                            <ul>
-                                <li><a>Buy</a></li>
-                                <li><a>Sell</a></li>
-                                <li><a>Remit</a></li>
-                            </ul>
+
+    <section class="hero is-small">
+        <div class="tile is-ancestor mr-3 ml-2">
+            <div class="tile is-parent">
+                <article class="tile is-child ">
+                    <div class=" is-6"><br>
+                        <div id="tabs-with-content">
+                            <div class="tabs is-large is-toggle">
+                                <ul>
+                                    <li><a class="txt">Buy</a></li>
+                                    <li><a class="txt">Sell</a></li>
+                                    <li><a class="txt">Remit</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <section class="tab-content">
+                                    <form action="#" method="post">
+                                        <input type="hidden" id="buy" value="Buy">
+                                        <div class="field">
+                                            <label class="label">Product</label>
+                                            <label>
+                                                <input type="radio" name="buy" value="Cash" checked>
+                                                <img src="assets/images/Cash.svg">
+                                            </label>
+    
+                                            <label>
+                                                <input type="radio" name="buy" value="Forex">
+                                                <img src="assets/images/forex.svg">
+                                            </label>
+    
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Phone Number</label>
+                                            <div class="control">
+                                                <input class="input" type="text" onkeyup="return validate()"
+                                                    id="phoneNumber">
+                                                <div id="NumberErr"></div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Purpose</label>
+                                            <div class="control">
+                                                <div class="select">
+                                                    <select id="purpose" required>
+                                                        <option value="">Select Purpose</option>
+                                                        <option>Personal Visit</option>
+                                                        <option>Overseas Education</option>
+                                                        <option>Business Travel</option>
+                                                        <option>Employment</option>
+                                                        <option>Medical Visit</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Amount</label>
+                                            <div class="control">
+                                                <input class="input" type="text" id="inputAmount" required>
+                                            </div>
+                                        </div>
+                                        <div class="field has-addons">
+                                            <div class="control ">
+                                                <div class="select ">
+                                                    <select name="country" id="country" required onchange="show()">
+                                                        <option value="">Select a currency</option>
+                                                        <option value="aud">Australian Dollar (AUD)</option>
+                                                        <option value="gbp">British Pounds (GBP)</option>
+                                                        <option value="cnd">CANADA (CND)</option>
+                                                        <option value="china">China (CN)</option>
+                                                        <option value="eur">Euro (EUR)</option>
+                                                        <option value="hkd">Hong Kong Dollar (HKD)</option>
+                                                        <option value="japan">Japan (YEN)</option>
+                                                        <option value="malaysia">Malaysia (ML)</option>
+                                                        <option value="nzd">New Zealand (NZD)</option>
+                                                        <option value="sdr">Saudi Riyal (SDR)</option>
+                                                        <option value="sgd">Singapore Dollar (SGD)</option>
+                                                        <option value="sfr">Swiss Franc (SFR)</option>
+                                                        <option value="tbt">Thai Baht (TBT)</option>
+                                                        <option value="quatari">Qatar Riyal (QTR)</option>
+                                                        <option value="aed">United Arab Emirates (AED)</option>
+                                                        <option value="us">US Dollars (USD)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <button class="button is-danger buyButton" type="submit">
+                                                    <strong>
+                                                        CONVERT
+                                                    </strong>
+                                                </button>
+                                                <p id="showCurrency"></p>
+                                            </div>
+                                        </div>
+                                        <div class="documents"></div>
+                                    </form><br>
+                                    <input type="hidden" name="res" id="res" readonly class="input">
+                                    <div id="coupon">
+                                    </div>
+                                </section>
+    
+                                <section class="tab-content">
+                                    <form action="#" method="post">
+                                        <input type="hidden" id="sell" value="Sell">
+                                        <div class="field">
+                                            <label class="label">Product</label>
+                                            <label>
+                                                <input type="radio" name="sell" value="Cash" checked>
+                                                <img src="assets/images/Cash.svg">
+                                            </label>
+    
+                                            <label>
+                                                <input type="radio" name="sell" value="Forex">
+                                                <img src="assets/images/forex.svg">
+                                            </label>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Phone Number</label>
+                                            <div class="control">
+                                                <input class="input" type="text" id="sellPhoneNumber"
+                                                    onkeyup="return sellValidate()" required>
+                                                <div id="NumberErr1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Purpose</label>
+                                            <div class="control">
+                                                <div class="select">
+                                                    <select id="sellPurpose" required>
+                                                        <option value="">Select Purpose</option>
+                                                        <option>Personal Visit</option>
+                                                        <option>Overseas Education</option>
+                                                        <option>Business Travel</option>
+                                                        <option>Employment</option>
+                                                        <option>Medical Visit</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label class="label">Amount</label>
+                                            <div class="control">
+                                                <input class="input" type="text" id="sellAmount" required>
+                                            </div>
+                                        </div>
+                                        <div class="field has-addons">
+                                            <div class="control">
+                                                <div class="select">
+                                                    <select name="country" id="sellCountry" required onchange="showSell()">
+                                                        <option value="">Select a currency</option>
+                                                        <option value="aud">Australian Dollar (AUD)</option>
+                                                        <option value="gbp">British Pounds (GBP)</option>
+                                                        <option value="cnd">CANADA (CND)</option>
+                                                        <option value="china">China (CN)</option>
+                                                        <option value="eur">Euro (EUR)</option>
+                                                        <option value="hkd">Hong Kong Dollar (HKD)</option>
+                                                        <option value="japan">Japan (YEN)</option>
+                                                        <option value="malaysia">Malaysia (ML)</option>
+                                                        <option value="nzd">New Zealand (NZD)</option>
+                                                        <option value="sdr">Saudi Riyal (SDR)</option>
+                                                        <option value="sgd">Singapore Dollar (SGD)</option>
+                                                        <option value="sfr">Swiss Franc (SFR)</option>
+                                                        <option value="tbt">Thai Baht (TBT)</option>
+                                                        <option value="quatari">Qatar Riyal (QTR)</option>
+                                                        <option value="aed">United Arab Emirates (AED)</option>
+                                                        <option value="us">US Dollars (USD)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <button class="button is-danger sellButton" type="submit">
+                                                    <strong>
+                                                        CONVERT
+                                                    </strong>
+                                                </button>
+                                                <p id="showSellCurrency"></p>
+                                            </div>
+                                        </div>
+                                        <div class="documentSell"></div>
+                                    </form><br>
+                                    <div id="sellCoupon">
+    
+                                    </div>
+                                </section>
+                                <section class="tab-content">
+                                    <div class="tile box">
+                                        For Further details Please click the <br> <a href="https://wa.me/919930800545"> Link</a>.
+                                    </div>
+                                </section>
+    
+                            </div>
                         </div>
-                        <div>
-                            <section class="tab-content">
-                                <form action="#" method="post">
-                                    <input type="hidden" id="buy" value="Buy">
-                                    <div class="field">
-                                        <label class="label">Product</label>
-                                        <label>
-                                            <input type="radio" name="buy" value="Cash" checked>
-                                            <img src="assets/images/Cash.svg">
-                                        </label>
-
-                                        <label>
-                                            <input type="radio" name="buy" value="Forex">
-                                            <img src="assets/images/forex.svg">
-                                        </label>
-
-                                    </div>
-                                    <div class="field">
-                                        <label class="label">Phone Number</label>
-                                        <div class="control">
-                                            <input class="input" type="text" onkeyup="return validate()"
-                                                id="phoneNumber">
-                                            <div id="NumberErr"></div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label class="label">Purpose</label>
-                                        <div class="control">
-                                            <div class="select">
-                                                <select id="purpose" required>
-                                                    <option value="">Select Purpose</option>
-                                                    <option>Personal Visit</option>
-                                                    <option>Overseas Education</option>
-                                                    <option>Business Travel</option>
-                                                    <option>Employment</option>
-                                                    <option>Medical Visit</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label class="label">Amount</label>
-                                        <div class="control">
-                                            <input class="input" type="text" id="inputAmount" required>
-                                        </div>
-                                    </div>
-                                    <div class="field has-addons">
-                                        <div class="control ">
-                                            <div class="select ">
-                                                <select name="country" id="country" required onchange="show()">
-                                                    <option value="">Select a currency</option>
-                                                    <option value="aud">Australian Dollar (AUD)</option>
-                                                    <option value="gbp">British Pounds (GBP)</option>
-                                                    <option value="cnd">CANADA (CND)</option>
-                                                    <option value="china">China (CN)</option>
-                                                    <option value="eur">Euro (EUR)</option>
-                                                    <option value="hkd">Hong Kong Dollar (HKD)</option>
-                                                    <option value="japan">Japan (YEN)</option>
-                                                    <option value="malaysia">Malaysia (ML)</option>
-                                                    <option value="nzd">New Zealand (NZD)</option>
-                                                    <option value="sdr">Saudi Riyal (SDR)</option>
-                                                    <option value="sgd">Singapore Dollar (SGD)</option>
-                                                    <option value="sfr">Swiss Franc (SFR)</option>
-                                                    <option value="tbt">Thai Baht (TBT)</option>
-                                                    <option value="quatari">Qatar Riyal (QTR)</option>
-                                                    <option value="aed">United Arab Emirates (AED)</option>
-                                                    <option value="us">US Dollars (USD)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field is-grouped">
-                                        <div class="control">
-                                            <button class="button is-light buyButton" type="submit"
-                                                style="color: black;">
-                                                <strong>
-                                                    CONVERT
-                                                </strong>
-                                            </button>
-                                            <p id="showCurrency"></p>
-                                        </div>
-                                    </div>
-                                    <div class="documents"></div>
-                                </form><br>
-                                <input type="hidden" name="res" id="res" readonly class="input">
-                                <div id="coupon">
-                                </div>
-                            </section>
-
-                            <section class="tab-content">
-                                <form action="#" method="post">
-                                    <input type="hidden" id="sell" value="Sell">
-                                    <div class="field">
-                                        <label class="label">Product</label>
-                                        <label>
-                                            <input type="radio" name="sell" value="Cash" checked>
-                                            <img src="assets/images/Cash.svg">
-                                        </label>
-
-                                        <label>
-                                            <input type="radio" name="sell" value="Forex">
-                                            <img src="assets/images/forex.svg">
-                                        </label>
-                                    </div>
-                                    <div class="field">
-                                        <label class="label">Phone Number</label>
-                                        <div class="control">
-                                            <input class="input" type="text" id="sellPhoneNumber"
-                                                onkeyup="return sellValidate()" required>
-                                            <div id="NumberErr1"></div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label class="label">Purpose</label>
-                                        <div class="control">
-                                            <div class="select">
-                                                <select id="sellPurpose" required>
-                                                    <option value="">Select Purpose</option>
-                                                    <option>Personal Visit</option>
-                                                    <option>Overseas Education</option>
-                                                    <option>Business Travel</option>
-                                                    <option>Employment</option>
-                                                    <option>Medical Visit</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label class="label">Amount</label>
-                                        <div class="control">
-                                            <input class="input" type="text" id="sellAmount" required>
-                                        </div>
-                                    </div>
-                                    <div class="field has-addons">
-                                        <div class="control">
-                                            <div class="select">
-                                                <select name="country" id="sellCountry" required onchange="showSell()">
-                                                    <option value="">Select a currency</option>
-                                                    <option value="aud">Australian Dollar (AUD)</option>
-                                                    <option value="gbp">British Pounds (GBP)</option>
-                                                    <option value="cnd">CANADA (CND)</option>
-                                                    <option value="china">China (CN)</option>
-                                                    <option value="eur">Euro (EUR)</option>
-                                                    <option value="hkd">Hong Kong Dollar (HKD)</option>
-                                                    <option value="japan">Japan (YEN)</option>
-                                                    <option value="malaysia">Malaysia (ML)</option>
-                                                    <option value="nzd">New Zealand (NZD)</option>
-                                                    <option value="sdr">Saudi Riyal (SDR)</option>
-                                                    <option value="sgd">Singapore Dollar (SGD)</option>
-                                                    <option value="sfr">Swiss Franc (SFR)</option>
-                                                    <option value="tbt">Thai Baht (TBT)</option>
-                                                    <option value="quatari">Qatar Riyal (QTR)</option>
-                                                    <option value="aed">United Arab Emirates (AED)</option>
-                                                    <option value="us">US Dollars (USD)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field is-grouped">
-                                        <div class="control">
-                                            <button class="button is-light sellButton" type="submit"
-                                                style="color: black;">
-                                                <strong>
-                                                    CONVERT
-                                                </strong>
-                                            </button>
-                                            <p id="showSellCurrency"></p>
-                                        </div>
-                                    </div>
-                                    <div class="documentSell"></div>
-                                </form><br>
-                                <div id="sellCoupon">
-
-                                </div>
-                            </section>
-                            <section class="tab-content">
-                                For Further details Please click the <a href="https://wa.me/919930800545">Link</a>.
-                            </section>
-
-                        </div>
+    
+    
                     </div>
-
-
-                </div>
-            </article>
+                </article>
+            </div>
         </div>
-    </div>
+    </section>
 
 
     <!-- JS FILES -->

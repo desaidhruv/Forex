@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foreign Exchange</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <style>
+        .hero.is-small {
+            background: linear-gradient(rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)), url('assets/images/d48be2b5-6eaf-4107-bf4b-ab71dbda9622\ \(1\).jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .txt {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR STARTS -->
+    <div class="container">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item logo" href="#"></a>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a class="navbar-item" href="index.html">
+                            Home
+                        </a>
+                        <a class="navbar-item" href="index.html#about" id="button">
+                            About us
+                        </a>
+                        <a class="navbar-item" href="product.html">
+                            Products
+                        </a>
+                        <a class="navbar-item active" href="#">
+                            Services
+                        </a>
+                        <a class="navbar-item " href="FAQs.html">
+                            FAQs
+                        </a>
+                        <a class="navbar-item" href="index.html#contact" id="button1">
+                            Contact us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- NAVBAR ENDS -->
+
+    <section class="hero is-small" id="about">
+        <div class="hero-body">
+            <p class="title" style="color: white !important; text-align: center;">OUR SERVICES</p>
+            <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                    <article class="tile is-child  has-text-centered">
+                        <div class="content">
+                            <figure class="image is-4by3">
+                                <img src="assets/images/foreign-exchange-rates-2019.jpg">
+                            </figure>
+                        </div>
+                        <p class="title txt">Foreign Exchange</p>
+                    </article>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child  has-text-centered">
+                        <div class="content">
+                            <figure class="image is-4by3">
+                                <img src="assets/images/Forex-Card.jpg">
+                            </figure>
+                        </div>
+                        <p class="title txt">Forex Card</p>
+                    </article>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child  has-text-centered">
+                        <div class="content">
+                            <figure class="image is-4by3">
+                                <img src="assets/images/remittance.jpg">
+                            </figure>
+                        </div>
+                        <p class="title txt">Remittance</p>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+    <!-- JS FILES -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let cardToggles = document.getElementsByClassName('card-toggle');
+            for (let i = 0; i < cardToggles.length; i++) {
+                cardToggles[i].addEventListener('click', e => {
+                    e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>

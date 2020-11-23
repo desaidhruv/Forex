@@ -10,6 +10,9 @@ body {
     font-weight: 700;
     border-bottom: 2px solid #FF0000;
 }
+.button {
+    border-radius: 0px;
+}
 .navbar-item:hover {
     color: #E61B49 !important;
 }
@@ -45,7 +48,7 @@ body {
 [type=radio]:checked + img {
     border-radius: 5px;
     border: 2px solid #3A3766;
-    background-color: rgba(175, 175, 175, 0.4);
+    background-color: #fff;
 }
 /* Radio Button Ends */
 
@@ -159,7 +162,13 @@ body {
 /* Mobile Responsive */
 @media (max-width: 768px){
     
-    
+    .notification {
+        position: absolute;
+        bottom: -400px;
+        right: 60px;
+        z-index: 5;
+        width: 350px;
+    }
     .services {
         height: 20px;
         width: 20px;
@@ -193,10 +202,6 @@ body {
 }
 /* Mobile Responsive Ends */
 
-.columns {
-    margin: -35px 0;
-    padding: 0;
-}
 
 @keyframes slidy {
     0% {
@@ -250,7 +255,6 @@ div#slider figure {
     width: 500%;
     margin: 0;
     left: 0;
-    text-align: left;
     font-size: 0;
     animation: 20s slidy infinite;
 }
