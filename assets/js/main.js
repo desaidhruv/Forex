@@ -73,7 +73,6 @@ $('.buyButton').click((e) => {
     console.log(radio)
     if (radio === 'Cash') {
         let buy = $('#buy').val();
-        let product = $('#product').val();
         let number = $('#phoneNumber').val();
         let purpose = $('#purpose').val();
         let country = $('#country').val();
@@ -89,7 +88,7 @@ $('.buyButton').click((e) => {
             body: JSON.stringify(
                 {
                     "Type": buy,
-                    "Product": product,
+                    "Product": radio,
                     "Contact": number,
                     "Purpose": purpose,
                     "Amount": inputAmount,
@@ -195,7 +194,6 @@ $('.buyButton').click((e) => {
     }
     else if (radio === 'Forex') {
         let buy = $('#buy').val();
-        let product = $('#product').val();
         let number = $('#phoneNumber').val();
         let purpose = $('#purpose').val();
         let country = $('#country').val();
@@ -211,7 +209,7 @@ $('.buyButton').click((e) => {
             body: JSON.stringify(
                 {
                     "Type": buy,
-                    "Product": product,
+                    "Product": radio,
                     "Contact": number,
                     "Purpose": purpose,
                     "Amount": inputAmount,
@@ -325,7 +323,6 @@ $('.sellButton').click((e) => {
     console.log(radio)
     if (radio === 'Cash') {
         let sell = $('#sell').val();
-        let product = $('#sellProduct').val();
         let number = $('#sellPhoneNumber').val();
         let purpose = $('#sellPurpose').val();
         let sellCountry = $('#sellCountry').val();
@@ -341,7 +338,7 @@ $('.sellButton').click((e) => {
             body: JSON.stringify(
                 {
                     "Type": sell,
-                    "Product": product,
+                    "Product": radio,
                     "Contact": number,
                     "Purpose": purpose,
                     "Amount": sellAmount,
@@ -447,7 +444,6 @@ $('.sellButton').click((e) => {
     }
     else if (radio === 'Forex') {
         let sell = $('#sell').val();
-        let product = $('#sellProduct').val();
         let number = $('#sellPhoneNumber').val();
         let purpose = $('#sellPurpose').val();
         let sellCountry = $('#sellCountry').val();
@@ -463,7 +459,7 @@ $('.sellButton').click((e) => {
             body: JSON.stringify(
                 {
                     "Type": sell,
-                    "Product": product,
+                    "Product": radio,
                     "Contact": number,
                     "Purpose": purpose,
                     "Amount": sellAmount,
