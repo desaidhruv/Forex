@@ -13,16 +13,20 @@ body {
 .navbar-item:hover {
     color: #E61B49 !important;
 }
+
 .logo {
     background: url('../images/Logo.svg') no-repeat;
     background-size: cover;
-    width: 200px;
-    /* height: 48px; */
+    margin-top: 4%;
+    width: 240px;
+    height: 40px;
 }
+
 /* Navbar Starts */
 .card-border {
     border-radius: 15px;
 }
+
 /* Radio Button Starts */
 [type=radio] { 
     position: absolute;
@@ -177,6 +181,14 @@ body {
         transition: all 0.3s ease;
         color: white;
         font-size: 15px;
+    }
+    .logo {
+        background: url('../images/Logo.svg') no-repeat;
+        background-size: cover;
+        margin-top: 1.5%;
+        margin-left: 2%;
+        width: 240px;
+        height: 40px;
     }
 }
 /* Mobile Responsive Ends */
