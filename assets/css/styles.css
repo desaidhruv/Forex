@@ -219,11 +219,11 @@ body {
         font-size: 15px;
     }
     .logo {
-        background: url('../images/Logo.svg') no-repeat;
+        background: url('../images/Logo2.svg') no-repeat;
         background-size: cover;
         margin-top: 1.5%;
         margin-left: 2%;
-        width: 240px;
+        width: 340px;
         height: 40px;
     }
     .home-btn {
