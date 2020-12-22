@@ -123,7 +123,7 @@ $('.buyButton').click((e) => {
                 let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
                 $('.documents').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
-                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var urlimg = 'https://i.ibb.co/QCYQ86Z/Group-11.png';
                 var image = new Image();
                 image.src = urlimg;
                 document.querySelector('.documents').appendChild(image);
@@ -245,7 +245,7 @@ $('.buyButton').click((e) => {
                 let serviceCharge = (result * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (result + parseFloat(gst) + parseFloat(serviceCharge)).toFixed(2);
                 $('.documents').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
-                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var urlimg = 'https://i.ibb.co/QCYQ86Z/Group-11.png';
                 var image = new Image();
                 image.src = urlimg;
                 document.querySelector('.documents').appendChild(image);
@@ -374,7 +374,7 @@ $('.sellButton').click((e) => {
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
                 $('.documentSell').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
-                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var urlimg = 'https://i.ibb.co/QCYQ86Z/Group-11.png';
                 var image = new Image();
                 image.src = urlimg;
                 document.querySelector('.documentSell').appendChild(image);
@@ -495,7 +495,7 @@ $('.sellButton').click((e) => {
                 let serviceCharge = (sellResult * 0.10 * 0.18).toFixed(2);
                 let payableAmount = (sellResult - parseFloat(gst) - parseFloat(serviceCharge)).toFixed(2);
                 $('.documentSell').html(`<p class="label">These documents are required <span style="color: red;">*</span></p>`);
-                var urlimg = 'https://i.ibb.co/R0yWZrQ/Group-9-1.png';
+                var urlimg = 'https://i.ibb.co/QCYQ86Z/Group-11.png';
                 var image = new Image();
                 image.src = urlimg;
                 document.querySelector('.documentSell').appendChild(image);

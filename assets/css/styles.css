@@ -178,7 +178,14 @@ body {
     color: white;
 }
 /* Social Buttons Ends */
-
+.home-btn {
+    border-radius: 0px !important; 
+    background-color:#3A3766 !important; 
+    color: white;
+}
+.card-toggle:hover {
+    cursor: pointer;
+}
 /* Mobile Responsive */
 @media (max-width: 768px){
     
@@ -219,6 +226,12 @@ body {
         width: 240px;
         height: 40px;
     }
+    .home-btn {
+        border-radius: 0px !important; 
+        background-color:#FF0000 !important; 
+        color: white;
+    }
+
 }
 /* Mobile Responsive Ends */
 
