@@ -33,7 +33,14 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-
+.hero.is-small {
+    background: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)), url('../images/About1.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 .hero.mission {
     background: linear-gradient(rgba(0, 0, 0, 0.5),
@@ -177,6 +184,10 @@ body {
     background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
     color: white;
 }
+.facebook {
+    background: #4867AA;
+    color: white;
+}
 /* Social Buttons Ends */
 .home-btn {
     border-radius: 0px !important; 
@@ -293,3 +304,69 @@ div#slider figure {
 }
 
 
+footer{
+    background-color: #000; 
+    min-width: 400px; 
+    width: 100%; 
+    text-align: center; 
+    line-height: 35px; 
+    height: 35px; 
+    color: #ccc;
+  }
+  .footer-bottom-site-credit{
+    padding-right: 10px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .footer-bottom-copyright-text{
+      font-size: 80%;
+    }
+   .footer-bottom-social-icons{
+     font-size: 80%;
+   }
+}
+
+@media only screen and (max-width: 960px) {
+  .footer-bottom{
+    text-align: center;
+  }
+  .footer-bottom-copyright-text{
+    width: 100%;
+  }
+  .footer-bottom-social-icons{
+    background-color: #000;
+  }
+  .footer-bottom-site-credit{
+    padding-right: 0px;
+  }
+  #footer-social-links li{
+    list-style: none; 
+    display: inline-block; 
+    padding: 0px 10px;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  .footer-bottom{text-align: left;
+  }
+  .footer-bottom-copyright-text{
+    max-width: 480px; 
+    float: left; 
+    padding: 10px 10px 0px 10px; 
+    line-height: 60px; 
+    height: 60px;
+  }
+  .footer-bottom-social-icons{
+    background-color: #000; 
+    text-align: right; 
+    padding: 0px 10px;
+  }
+    #footer-social-links li{
+      list-style: none; 
+      display: inline-block; 
+      padding: 15px 10px 0px 10px;
+  }
+  .set-right {
+      margin-right: 5%;
+  }
+}
